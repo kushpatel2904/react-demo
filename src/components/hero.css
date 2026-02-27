@@ -1,0 +1,24 @@
+.hero-container2 {
+  width: 100vw;          /* full screen width */
+  height: 100vh;         /* full screen height */
+  position: relative;
+}
+
+.hero-slider {
+  gap: 10px; 
+  display: flex;
+  height: 100%;
+  transition: transform 5s ease-in-out; /* slow smooth slide */
+}
+
+.hero-image {
+  min-width: 100vw;      /* each slide full screen */
+  height: 80vh;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* 👈 FULL COVER without stretch */
+}
+

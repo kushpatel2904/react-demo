@@ -1,0 +1,274 @@
+.loading {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 100px;
+  font-family: serif;
+  letter-spacing: 2px;
+  color: #b8860b;
+}
+
+
+/* --- Global Wrapper --- */
+.collections1-wrapper {
+  background-color: #fcfcfc;
+  min-height: 100vh;
+  padding: 40px 2%;
+  font-family: 'Inter', sans-serif;
+}
+
+
+/* --- Layout Structure --- */
+.collections-layout {
+  display: flex;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* --- Sidebar Styling --- */
+.sidebar-1 {
+  flex: 0 0 280px;
+  position: sticky;
+  top: 40px;
+  height: fit-content;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+}
+
+.sidebar-1 h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  margin-bottom: 25px;
+  color: #1a1a1a;
+  border-bottom: 2px solid #b8860b;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #555;
+  transition: color 0.3s;
+}
+
+.checkbox-label:hover {
+  color: #b8860b;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #b8860b;
+  /* Gold accent color */
+  cursor: pointer;
+}
+
+.clear-btn {
+  margin-top: 30px;
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid #b8860b;
+  color: #b8860b;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.clear-btn:hover {
+  background: #b8860b;
+  color: white;
+}
+
+/* --- Products Grid --- */
+.collections-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.collections-card {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.collections-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.collections-card:hover img {
+  transform: scale(1.1);
+}
+
+/* --- Overlay Styling --- */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px;
+  opacity: 1;
+  transition: background 0.4s;
+}
+
+.overlay h2 {
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  margin-bottom: 15px;
+  transform: translateY(0);
+  transition: transform 0.4s;
+}
+
+/* --- Desktop & Base Styles --- */
+.overlay button {
+  background: white;
+  color: #1a1a1a;
+  border: none;
+  padding: 12px 25px;
+  font-size: 13px;
+  /* Thoda readable font */
+  letter-spacing: 2px;
+  font-weight: 700;
+  cursor: pointer;
+  width: fit-content;
+  /* Button ko poori width lene se rokega */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  border-radius: 4px;
+  /* Slight roundness for professional look */
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay button:hover {
+  background: #b8860b;
+  /* Gold Hover */
+  color: white;
+  transform: translateY(-2px);
+  /* Hover par upar uthega */
+  box-shadow: 0 5px 15px rgba(184, 134, 11, 0.3);
+}
+
+/* --- Responsive Optimization --- */
+
+/* Tablet (Tab) View */
+@media (max-width: 1024px) {
+  .collections-layout {
+    flex-direction: column;
+  }
+
+  .sidebar-1 {
+    flex: none;
+    position: relative;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filter-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+
+
+/* --- RESPONSIVE FIXES --- */
+
+/* 1. Tablets (Max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  .overlay {
+    padding: 20px;
+  }
+
+  .overlay h2 {
+    font-size: 20px;
+    /* Thoda chota heading tablet ke liye */
+  }
+
+  .overlay button {
+    padding: 10px 20px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* 2. Mobile Large (iPhone Pro Max, Samsung Ultra) - Max-width: 768px */
+@media screen and (max-width: 768px) {
+  .overlay {
+    padding: 15px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 10%, transparent 70%);
+  }
+
+  .overlay h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .overlay button {
+    padding: 10px 20px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* 3. Mobile Medium (iPhone 13, Pixel, etc.) - Max-width: 480px */
+@media screen and (max-width: 480px) {
+  .overlay {
+    padding: 12px;
+  }
+
+  .overlay h2 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .overlay button {
+    width: 100%;
+    /* Mobile par full width button zyaada achha lagta hai aur click asaan hota hai */
+    text-align: center;
+    padding: 12px 0;
+  }
+}
+
+/* 4. Small Mobile (iPhone SE, Small Screen Phones) - Max-width: 360px */
+@media screen and (max-width: 360px) {
+  .overlay h2 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .overlay button {
+    font-size: 10px;
+    padding: 8px 0;
+  }
+}

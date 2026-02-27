@@ -1,0 +1,164 @@
+/* Body styling - overall page layout and background */
+.body {
+  background: linear-gradient(#ee0979, #ff6a00, #ee0979); /* Gradient background */
+  display: flex; /* Center content horizontally and vertically */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+}
+
+/* Header styling */
+.header {
+  width: 100%;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: center; /* Center header text */
+  letter-spacing: 20px; /* Spacing between letters */
+  font-weight: bold;
+  text-transform: uppercase; /* Make text uppercase */
+}
+
+/* Logo styling */
+.logo h1 {
+  font-size: 50px;
+  font-weight: bold;
+  border-radius: 10px; /* Rounded corners for logo */
+}
+
+/* Quiz container styling */
+.quiz-container {
+  padding: 70px;
+  background: linear-gradient(#70e1f5 0%, #ffd194 51%, #70e1f5); /* Gradient background for quiz box */
+  border-radius: 10px; /* Rounded corners */
+  width: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Box shadow */
+  text-align: center;
+}
+
+/* Quiz title styling */
+.quiz-container h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Quiz options list styling */
+.quiz-options {
+  list-style: none; /* Remove bullets */
+  padding: 0;
+}
+
+/* Individual quiz option styling */
+.quiz-options li {
+  margin-bottom: 12px; /* Spacing between options */
+}
+
+/* Quiz option button styling */
+.quiz-options button {
+  width: 100%;
+  padding: 20px;
+  font-size: 16px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 15px;
+  border: 1px solid black;
+  background: linear-gradient(#A1FFCE 0%, #FAFFD1 51%, #A1FFCE);
+}
+
+/* Hover effect for quiz option buttons */
+.quiz-options button:hover {
+  background: linear-gradient(#3D7EAA 0%, #FFE47A 51%, #3D7EAA);
+  border-color: #4f46e5;
+}
+
+/* Quiz completion container styling */
+.quiz-complete-wrapper {
+  background: linear-gradient(#70e1f5 0%, #ffd194 51%, #70e1f5);
+  max-width: 420px;
+  padding: 50px 100px;
+  border-radius: 16px;
+  text-align: center;
+  margin-right: 10px;
+  margin-bottom: 150px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+/* Image inside quiz completion */
+.quiz-complete-img {
+  width: 180px; /* Image width */
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 20px; /* Rounded corners for image */
+  margin-right: 30px;
+}
+
+
+/* Result statistics grid */
+.result-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for stats */
+  margin-top: 20px;
+  position: relative;
+}
+
+/* Each statistic column */
+.result-stats p {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Space between percentage and label */
+  font-size: 14px;
+}
+
+/* Percentage text styling */
+.result-stats p span:first-child {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+/* Horizontal line under stats */
+.result-stats::after {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  width: 100%;
+  height: 2px;
+  background: #ddd;
+}
+
+.next-btn {
+  padding: 15px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid black;
+  background: linear-gradient(#A1FFCE 0%, #FAFFD1 51%, #A1FFCE)
+}
+
+.next-btn:hover{
+  background: linear-gradient(#3D7EAA 0%, #FFE47A 51%, #3D7EAA);
+}
+
+
+/* progress bar ane seconds ne ek line ma rakhva mate */
+.timer-wrapper {
+  display: flex;            /* horizontal layout */
+  align-items: center;      /* vertically center */
+  justify-content: center;  /* screen na center ma */
+  gap: 10px;                /* bar ane number vachche gap */
+  margin-bottom: 15px;
+}
+
+/* progress bar ni width ane height set karva mate */
+.timer-wrapper progress {
+  width: 150px;
+  height: 20px;
+}
+
+/* seconds number ne readable banava mate */
+.timer-text {
+  font-size: 16px;
+  font-weight: bold;
+}

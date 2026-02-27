@@ -1,0 +1,2649 @@
+
+
+body {
+  background: #f4f5f7;
+  color: #333;
+}
+
+/* Parent container centers the button */
+.send-whatsapp-container {
+  display: flex;
+  justify-content: center;
+  /* horizontal center */
+  align-items: center;
+  /* vertical center if needed */
+  width: 100%;
+  /* important to take full width */
+  margin-top: 20px;
+  /* space from top */
+}
+
+/* Button style */
+.send-whatsapp-btn {
+  background: #25D366;
+  /* WhatsApp green */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  /* slightly bigger for better look */
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  /* space if you add icon */
+}
+
+.send-whatsapp-btn:hover {
+  background: #1ebe57;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.send-whatsapp-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.send-whatsapp-btn:disabled {
+  background: #a5d6a7;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Search Input */
+.search-input {
+  width: 100%;
+  max-width: 300px;
+  /* Adjust as needed */
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 10px;
+}
+
+.search-input:focus {
+  border-color: #4caf50;
+  /* Highlight color on focus */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* ===========================
+   DASHBOARD WRAPPER
+=========================== */
+.dashboard-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 230px;
+  background: linear-gradient(180deg, #ffffff, #fafafa);
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  top: 0;
+  height: 100vh;
+}
+
+
+
+.logo {
+  font-weight: 800;
+  font-size: 22px;
+  margin-bottom: 45px;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.logo span {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffce00;
+  margin-top: 4px;
+}
+
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1;
+}
+
+
+.sidebar li {
+  margin: 12px 0;
+  cursor: pointer;
+  color: #555;
+  font-weight: 600;
+  padding: 12px 16px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.25s ease;
+  position: relative;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.sidebar li:hover {
+  background: #007bff;
+  color: #111;
+  box-shadow: 0 6px 15px rgba(255, 206, 0, 0.35);
+  transform: translateX(4px);
+}
+
+
+
+.logout-btn {
+  padding: 14px 0;
+  border: none;
+  background: transparent;
+  /* no background, only text */
+  color: #ff4d4f;
+  /* text color */
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  transition: all 0.25s ease;
+}
+
+.logout-btn:hover {
+  color: #e63c3f;
+  /* slightly darker on hover */
+  text-decoration: underline;
+  /* optional effect for hover */
+  transform: translateY(-1px);
+}
+
+
+
+
+/* ---------------------------
+   SUMMARY CARDS
+--------------------------- */
+.summary-cards {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.summary-cards .card {
+  flex: 1;
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.summary-cards .card:hover {
+  transform: translateY(-5px);
+}
+
+.summary-cards .card h3 {
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.summary-cards .card p {
+  font-size: 26px;
+  font-weight: bold;
+  color: #111;
+}
+
+
+/* ===========================
+   FORM CARD (SMALL SIZE)
+=========================== */
+.form-card {
+  background: #fff;
+  padding: 18px 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  margin-top: 20px;
+  max-width: 520px;
+  /* 🔥 size choti */
+}
+
+/* Title */
+.form-card h2 {
+  font-size: 18px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+/* Inputs */
+.form-card input,
+.form-card select,
+.form-card textarea {
+  width: 100%;
+  padding: 9px 12px;
+  /* 🔥 compact */
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 13px;
+  background: #fafafa;
+}
+
+/* Focus */
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus {
+  outline: none;
+  border-color: #ffb703;
+  box-shadow: 0 0 0 2px rgba(255, 183, 3, 0.15);
+}
+
+/* Textarea */
+.form-card textarea {
+  min-height: 70px;
+}
+
+/* Total box */
+.total-box {
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+/* Buttons */
+.add-btn,
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Add to cart */
+.add-btn {
+  background: linear-gradient(135deg, #007bff);
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+/* Save order */
+.submit-btn {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+.add-btn:hover,
+.submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+
+
+/* Mobile / tablet responsiveness */
+@media (max-width: 768px) {
+  .search-input {
+    max-width: 62%;
+    /* Take full width on smaller screens */
+    font-size: 13px;
+    /* Slightly smaller text */
+  }
+
+  .suggestions-list {
+    max-height: 120px;
+    /* Slightly smaller dropdown */
+  }
+}
+
+@media (max-width: 480px) {
+  .search-input {
+    padding: 6px 10px;
+    /* Less padding for small screens */
+    font-size: 12px;
+    /* Smaller text */
+  }
+
+  .suggestions-list {
+    font-size: 12px;
+    /* Smaller text in suggestions */
+    max-height: 100px;
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .form-card {
+    padding: 18px;
+  }
+}
+
+/* ---------------------------
+   CART
+--------------------------- */
+.cart {
+  margin-top: 25px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.grand-total {
+  font-weight: bold;
+  margin-top: 12px;
+  text-align: right;
+  font-size: 18px;
+  color: #111;
+}
+
+/* Container with High-Quality Fabric Image */
+.login-container-rivaaj {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('/public/images/Rivaaj11.png') no-repeat center center/cover;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+/* Dark Overlay for better text visibility */
+.fabric-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%);
+}
+
+/* Glassmorphism Card */
+.login-glass-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  padding: 50px 40px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+/* Brand Header */
+.brand-icon {
+  width: 60px;
+  height: 60px;
+  background: #c5a059; /* Gold color */
+  color: white;
+  font-size: 2rem;
+  line-height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.5);
+}
+
+.login-header h1 {
+  color: #fff;
+  font-size: 2.2rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.login-header p {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-bottom: 40px;
+}
+
+/* Modern Inputs */
+.input-group-modern {
+  position: relative;
+  margin-bottom: 35px;
+}
+
+.input-group-modern input {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1rem;
+  color: #fff;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(255,255,255,0.3);
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-group-modern label {
+  position: absolute;
+  top: 12px;
+  left: 0;
+  color: rgba(255,255,255,0.5);
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+/* Floating Label Logic */
+.input-group-modern input:focus + label,
+.input-group-modern input:not(:placeholder-shown) + label {
+  top: -18px;
+  font-size: 0.8rem;
+  color: #c5a059;
+  font-weight: bold;
+}
+
+.input-group-modern input:focus {
+  border-bottom: 2px solid #c5a059;
+}
+
+/* Premium Button */
+.login-btn-modern {
+  width: 100%;
+  padding: 15px;
+  background: #c5a059;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3);
+}
+
+.login-btn-modern:hover {
+  background: #e0b86d;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px rgba(197, 160, 89, 0.4);
+}
+
+.input-group-modern{
+  position: relative;
+  margin-bottom: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.input-group-modern input{
+  width: 100%;
+  padding: 12px 40px 12px 0;
+}
+
+.password-toggle-icon{
+position: absolute;
+right: 0;
+bottom: 12px;
+background: none;
+border: none;
+color: #c5a059;
+font-size: 12px;
+font-weight: 600;
+text-transform: uppercase;
+cursor: pointer;
+padding: 0;
+z-index: 10;
+transition:  color 0.3s ease;
+}
+
+.password-toggle-icon:hover{
+  color: #fff;
+}
+
+
+.date-cell {
+  white-space: nowrap;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.date-text {
+  background: #f0f0f0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+
+
+
+@media screen and (max-width: 480px) {
+  .password-toggle-icon{
+    font-size: 12px;
+    bottom: 10px;
+  }
+}
+
+
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+
+
+@keyframes popIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.delete-btn {
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #ff4d4f, #ff7875);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.delete-btn:hover {
+  opacity: 0.9;
+}
+
+
+
+/* Base message style */
+.message {
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* Error / Already exists messages */
+.message.error {
+
+  /* light red background */
+  color: #f80a0a;
+  /* red text */
+}
+
+/* Success messages */
+.message.success {
+
+  /* light green background */
+  color: #0a9f0a;
+  /* green text */
+}
+
+/* Existing customers selection */
+.existing-customers {
+  margin-top: 12px;
+}
+
+.existing-customers .customer-list {
+  display: flex;
+  flex-wrap: wrap;
+  /* wrap to next line if many customers */
+  gap: 8px;
+  /* space between buttons */
+}
+
+.existing-customers .customer-list button {
+  padding: 6px 12px;
+  /* slightly larger padding */
+  font-size: 13px;
+  /* slightly bigger font */
+  border: none;
+  border-radius: 8px;
+  background: #f0f0f0;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.existing-customers .customer-list button:hover {
+  background: #ccc;
+  /* hover color */
+  color: #111;
+  transform: translateY(-2px);
+}
+
+
+/* DELETE MODAL */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background: #fff;
+  padding: 20px 25px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 350px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+
+}
+
+.modal-actions button {
+  width: 100px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+/* Container alignment fix */
+.select-customer-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  /* Agar parent flex nahi hai, toh top-right corner ke liye ye best hai */
+  float: right; 
+  margin-top: -8px; 
+}
+
+.select-customer-dropdown select {
+  appearance: none;
+  -webkit-appearance: none;
+  
+  /* Layout & Sizing */
+  min-width: 220px;
+  height: 42px;
+  padding: 0 45px 0 16px; /* Right padding arrow ke liye zyada rakha hai */
+  
+  /* Styling */
+  background-color: #ffffff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  
+  /* Typography */
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  font-family: 'Poppins', sans-serif;
+  
+  /* Interaction */
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  outline: none;
+}
+
+/* Custom Premium Arrow Icon */
+.select-customer-dropdown::after {
+  /* Ek sundar SVG arrow ka content */
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23c5a059' stroke-width='3'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+/* Hover & Focus Effects */
+.select-customer-dropdown:hover select {
+  border-color: #c5a059; /* Gold border on hover */
+  background-color: #fffaf0; /* Very light gold tint */
+  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.15);
+}
+
+/* Jab dropdown khulega (Focus), tab arrow rotate ho jaye */
+.select-customer-dropdown:focus-within::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.select-customer-dropdown select:focus {
+  border-color: #c5a059;
+  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
+}
+
+/* --- Mobile Responsive --- */
+@media screen and (max-width: 768px) {
+  .select-customer-dropdown {
+    float: none;
+    width: 100%;
+    margin-top: 15px;
+    display: block;
+  }
+  
+  .select-customer-dropdown select {
+    width: 100%;
+    height: 45px; /* Mobile par thoda bada easy touch ke liye */
+    font-size: 15px;
+  }
+}
+
+
+.modal-actions .cancel-btn {
+  background-color: white;
+  color: #333;
+  border: 1.5px solid #ccc;
+
+}
+
+.modal-actions .cancel-btn:hover {
+  background-color: white;
+  border-color: #eee9e9;
+  transform: translatey(-3px);
+}
+
+
+
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.view-btn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.view-btn:hover {
+  background: #2563eb;
+  transform: translateY(-3px);
+}
+
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+/* Container for centering buttons */
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Base style for all action buttons */
+.action-buttons button {
+  min-width: 138px;
+  height: 40px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+
+}
+
+
+.modal-actions .submit-btn {
+  background-color: #2c7be5;
+  color: #fff;
+}
+
+.modal-actions .submit-btn:hover {
+  background-color: #2c7be5;
+}
+
+/* Clear Form – soft & premium */
+.delete-btn {
+  background: #fff;
+  color: #c0392b;
+  border: 1.8px solid #f1c4bf;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+  margin-top: 5px;
+}
+
+.modal-actions .delete-btn {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.modal-actions .delete-btn:hover {
+  background-color: #e53935;
+}
+
+/* Cancel button - white with border */
+.action-buttons .cancel-btn {
+  background-color: white;
+  color: #333;
+  border: 1.5px solid #ccc;
+
+}
+
+.action-buttons .cancel-btn:hover {
+  background-color: white;
+  border-color: #eee9e9;
+  transform: translatey(-3px);
+}
+
+/* Create Event button - vibrant blue */
+.action-buttons .create-btn {
+  background-color: #007bff;
+  /* bright blue */
+  color: #fff;
+  border: none;
+
+}
+
+.action-buttons .create-btn:hover {
+  background-color: #0056b3;
+  /* darker blue on hover */
+  transform: translateY(-1px);
+}
+
+/* Table Header Flex */
+.table-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.fabric-analytics b {
+  color: #c5a059;
+  background: #fff9ed;
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+
+/* Bulk Order Highlighting */
+.bulk-order-row {
+  background-color: #fffcf0 !important;
+  /* હળવો સોનેરી રંગ */
+}
+
+.bulk-badge {
+  background: #d4a017;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+/* Status Timeline Progress */
+.status-timeline {
+  width: 140px;
+}
+
+.status-label {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  display: block;
+}
+
+
+/* Fabric Tags */
+.fabric-tag {
+  display: block;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.4;
+}
+
+.grand-total-cell {
+  font-weight: bold;
+  color: #222;
+}
+
+
+/* ===============================
+   VIEW ORDERS MODAL
+================================ */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.view-orders-modal {
+  background: #fff;
+  width: 520px;
+  max-width: 95%;
+  border-radius: 14px;
+  padding: 22px 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  animation: scaleIn 0.25s ease;
+}
+
+/* Title */
+.view-orders-modal h3 {
+  margin-bottom: 18px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+}
+
+.view-orders-modal h3 span {
+  font-size: 14px;
+  color: #777;
+  font-weight: 500;
+}
+
+/* Empty text */
+.view-orders-modal p {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  padding: 20px 0;
+}
+
+/* Table */
+.view-orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 18px;
+}
+
+.view-orders-table th {
+  background: #f4f6f8;
+  color: #555;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px;
+  text-align: left;
+}
+
+.view-orders-table td {
+  padding: 10px;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.view-orders-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Amount highlight */
+.view-orders-table td:last-child {
+  font-weight: 700;
+  color: #2c7be5;
+}
+
+/* Close button */
+.view-orders-close {
+  width: 100%;
+  background: #2c7be5;
+  color: #fff;
+  border: none;
+  padding: 11px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.view-orders-close:hover {
+  background: #1a68d1;
+  transform: translateY(-1px);
+}
+
+.view-orders-close:active {
+  transform: scale(0.97);
+}
+
+
+.customer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.customer-header .add-btn {
+  background-color: #e5e9e5;
+  /* Green button */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  /* Smaller padding to reduce size */
+  font-size: 14px;
+  cursor: pointer;
+  width: 100px;
+  /* Fixed width to make it smaller */
+  transition: background 0.3s;
+}
+
+.customer-header .add-btn:hover {
+  background-color: #45a049;
+}
+
+
+/* =========================
+   Orders Table Card
+========================= */
+.table-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+.table-card h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+/* Table wrapper for scroll on smaller screens */
+.sales-table-wrapper {
+  overflow-x: auto;
+}
+
+/* Table styling */
+.sales-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  color: #333;
+  min-width: 600px;
+  /* ensures good layout on larger screens */
+}
+
+.sales-table thead {
+  background-color: #f4f5f7;
+}
+
+.sales-table th,
+.sales-table td {
+  padding: 12px 36px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.sales-table th {
+  font-weight: 600;
+  color: #555;
+}
+
+/* Zebra striping for rows */
+.sales-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Row hover effect */
+.sales-table tbody tr:hover {
+  background-color: #f1f7ff;
+  transition: background-color 0.3s;
+}
+
+
+/* ============================================
+   FORM GRID & FORM CARD
+============================================ */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.form-grid .form-card {
+  max-width: 100%;
+  width: 100%;
+  margin-top: 0;
+}
+
+.form-card {
+  background: #fff;
+  padding: 18px 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  margin-top: 20px;
+  max-width: 520px;
+}
+
+.form-card h2 {
+  font-size: 18px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+  width: 100%;
+  padding: 9px 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 13px;
+  background: #fafafa;
+}
+
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus {
+  outline: none;
+  border-color: #ffb703;
+  box-shadow: 0 0 0 2px rgba(255, 183, 3, 0.15);
+}
+
+.form-card textarea {
+  min-height: 70px;
+}
+
+.total-box {
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   CART
+============================================ */
+.cart {
+  margin-top: 25px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.grand-total {
+  font-weight: bold;
+  margin-top: 12px;
+  text-align: right;
+  font-size: 18px;
+  color: #111;
+}
+
+
+/* Main content: scrollable */
+.main-content {
+  flex: 1;
+  /* Take remaining space */
+  height: 100vh;
+  /* Full height */
+  overflow-y: auto;
+  /* Scroll only this area */
+  padding: 20px;
+  /* Some spacing */
+  background: #f4f5f7;
+  /* Optional background */
+}
+
+/* Modern checkbox */
+.modern-checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: #3b82f6;
+  /* blue color when checked */
+  cursor: pointer;
+  border: 2px solid #cbd5e1;
+  /* light gray border */
+  border-radius: 4px;
+  /* slightly rounded corners */
+  transition: all 0.2s ease;
+}
+
+/* Hover effect */
+.modern-checkbox:hover {
+  border-color: #3b82f6;
+  /* border turns blue on hover */
+}
+
+/* Checked style (accent-color works in most modern browsers) */
+.modern-checkbox:checked {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+
+
+/* ===============================
+   PREMIUM DASHBOARD LOADER
+================================= */
+
+.loader-wrapper {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #c5a059; /* Rivaaj gold */
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 1px;
+}
+
+.loader-wrapper p {
+  margin-top: 18px;
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+/* Gold spinning fabric effect */
+.fabric-loader {
+  width: 60px;
+  height: 60px;
+  border: 5px solid rgba(197, 160, 89, 0.2);
+  border-top: 5px solid #c5a059;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  box-shadow: 0 0 15px rgba(197, 160, 89, 0.6);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* ===========================
+   RESPONSIVE DESIGN - DASHBOARD
+=========================== */
+
+/* Medium screens (tablets) */
+@media screen and (max-width: 1024px) {
+  .dashboard-wrapper {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-top: 0;
+    padding: 20px 15px;
+  }
+
+  .sidebar ul {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .sidebar li {
+    margin: 5px 0;
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .form-card {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .summary-cards {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+
+}
+
+
+/* Small screens (mobile) */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    padding: 15px 10px;
+  }
+
+  .sidebar ul {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .sidebar li {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card {
+    padding: 12px;
+  }
+
+  .summary-cards {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+
+
+  table th,
+  table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+
+/* Extra small screens (small mobiles) */
+@media screen and (max-width: 480px) {
+  .sidebar {
+    padding: 10px 8px;
+  }
+
+  .sidebar li {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .main-content {
+    padding: 10px;
+  }
+
+  .summary-cards .card p {
+    font-size: 20px;
+  }
+
+
+}
+
+/* ================== PREMIUM MODAL OVERLAY ================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeOverlay 0.4s ease forwards;
+}
+
+/* ================== PREMIUM MODAL ================== */
+.modal {
+  width: 455px;
+  max-width: 95%;
+  padding: 35px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.85);
+
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.2),
+    0 5px 15px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  animation: popupSmooth 0.4s ease forwards;
+  transform: translateY(-30px) scale(0.95);
+}
+
+/* ================== ANIMATIONS ================== */
+@keyframes popupSmooth {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeOverlay {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ================== MODAL TITLE ================== */
+.modal h3 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.5px;
+}
+
+/* ================== INPUT FIELDS ================== */
+.modal input,
+.modal textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.7);
+
+  transition: all 0.3s ease;
+}
+
+.modal input:focus,
+.modal textarea:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+  background: #fff;
+}
+
+/* Textarea */
+.modal textarea {
+  min-height: 90px;
+  resize: none;
+}
+
+/* ================== BUTTON SECTION ================== */
+.modal-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* Base button */
+.modal-actions button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Save Button */
+.submit-btn {
+  background: #3b82f6;
+  color: white;
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.3);
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
+}
+
+/* Delete Button */
+.delete-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  box-shadow: 0 6px 18px rgba(220, 38, 38, 0.3);
+}
+
+.delete-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(220, 38, 38, 0.4);
+}
+
+.search-bar {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search-bar input {
+  padding: 8px 12px;
+  width: 250px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: 0.3s;
+}
+
+.search-bar input:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+
+
+/* ===========================
+   EDIT ORDER MODAL - PREMIUM
+=========================== */
+
+.edit-order-modal {
+  width: 95%;
+  max-width: 520px;
+  padding: 40px 35px;
+  border-radius: 24px;
+
+  background: linear-gradient(145deg, #ffffff, #f1f5f9);
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.15),
+    0 10px 30px rgba(99, 102, 241, 0.08);
+  animation: popup 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Title */
+.edit-order-modal h3 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===========================
+   ITEM ROW CARD STYLE
+=========================== */
+
+.edit-item-row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 18px;
+  border-radius: 18px;
+
+  background: #ffffff;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.06);
+
+  margin-bottom: 20px;
+  transition: 0.2s ease;
+}
+
+.edit-item-row:hover {
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ===========================
+   INPUT FIELDS - PREMIUM
+=========================== */
+
+.edit-item-row input {
+  width: 100%;
+  padding: 14px 18px;
+
+  border-radius: 14px;
+  font-size: 15px;
+
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+
+  transition: all 0.25s ease;
+}
+
+/* Focus Effect */
+.edit-item-row input:focus {
+  border-color: #6366f1;
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.15),
+    0 5px 15px rgba(99, 102, 241, 0.15);
+
+  transform: scale(1.02);
+  outline: none;
+}
+
+/* VIP Card Container */
+.premium-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+/* Title with Icon */
+.premium-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #b8860b;
+  /* Golden tone for VIP theme */
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Table Alignment Fix */
+.mini-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.mini-table th {
+  text-align: left;
+  font-size: 0.9rem;
+  color: #888;
+  font-weight: 600;
+  padding: 12px 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Specific alignments for numbers */
+.mini-table th:nth-child(2),
+.mini-table td:nth-child(2) {
+  text-align: center;
+  /* Orders column center */
+}
+
+.mini-table th:nth-child(3),
+.mini-table td:nth-child(3) {
+  text-align: right;
+  /* Value column right */
+}
+
+.mini-table td {
+  padding: 14px 8px;
+  border-bottom: 1px solid #f9f9f9;
+  font-size: 1rem;
+  color: #333;
+}
+
+.mini-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Hover effect for rows */
+.mini-table tr:hover td {
+  background-color: #fffaf0;
+  transition: 0.2s;
+}
+
+/* Status Selection Dropdown */
+.status-select {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  background: white;
+  width: 100%;
+  margin-bottom: 5px;
+  outline: none;
+}
+
+/* Status Specific Colors */
+.status-select.pending {
+  color: #f39c12;
+}
+
+.status-select.tailoring {
+  color: #3498db;
+}
+
+.status-select.ready {
+  color: #9b59b6;
+}
+
+.status-select.complete {
+  color: #2ecc71;
+}
+
+/* Progress Bar Styling */
+.status-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+/* Progress Width Logic */
+.progress-fill.pending {
+  width: 25%;
+  background: #f39c12;
+}
+
+.progress-fill.tailoring {
+  width: 50%;
+  background: #3498db;
+}
+
+.progress-fill.ready {
+  width: 75%;
+  background: #9b59b6;
+}
+
+.progress-fill.complete {
+  width: 100%;
+  background: #2ecc71;
+}
+
+/* Bulk Row Highlight */
+.bulk-order-row {
+  background-color: #fffaf0 !important;
+}
+
+.bulk-badge {
+  background: #d4a017;
+  color: white;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin-left: 5px;
+}
+
+/* --- Sales View Container --- */
+.sales-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+/* --- Summary Grid (Stats Cards) --- */
+.summary-grid {
+  display: grid;
+  /* Desktop/Tab par 3 columns, mobile par automatic adjust */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 15px;
+}
+
+.stat-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid #c5a059;
+  /* Rivaaj Gold Accent */
+  transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+}
+
+.stat-label {
+  display: block;
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  color: #1e293b;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* --- Chart Card Section --- */
+.chart-card {
+  height: 100%;
+  width: 100%;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f1f5f9;
+}
+
+.chart-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.chart-header h2 {
+  font-size: 1.3rem;
+  color: #1e293b;
+  margin: 0;
+}
+
+.gold-divider {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #c5a059, #d4af37);
+  margin: 10px auto;
+  border-radius: 2px;
+}
+
+.chart-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+/* --- 📱 Responsive Breakpoints --- */
+
+/* Tab & Small Laptops (Max 1024px) */
+@media (max-width: 1024px) {
+  .chart-wrapper {
+    height: 100%;
+  }
+}
+
+/* Large Mobile / Tablet (Max 768px) */
+@media (max-width: 768px) {
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 cards side-by-side */
+  }
+
+  .chart-wrapper {
+    height: 100% !important;
+  }
+}
+
+/* Medium Mobile (Standard Smartphones - Max 480px) */
+@media (max-width: 480px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+    /* 1 card per line */
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .stat-value {
+    font-size: 1.2rem;
+  }
+
+  .chart-card {
+    padding: 3px;
+  }
+
+  .chart-wrapper {
+    /* Multi-line names ke liye height ko balance rakha hai */
+    height: 100% !important;
+    padding-bottom: 10px;
+  }
+}
+
+/* Small Mobile (Small Screens/iPhone SE - Max 340px) */
+@media (max-width: 340px) {
+  .chart-wrapper {
+    height: 100% !important;
+  }
+
+  .chart-header h2 {
+    font-size: 1.1rem;
+  }
+}
+
+
+
+/* Tablet & Medium Screens (769px to 1024px) */
+@media (max-width: 1024px) {
+  .dashboard-wrapper {
+    flex-direction: column;
+    gap: 10px; /* Wrapper ke beech ka gap kam kiya */
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+    /* Padding kam ki taaki content upar se chipka rahe */
+    padding: 10px 5px; 
+    background: #fff; /* Ensure clean background */
+  }
+
+  .sidebar ul {
+    display: flex;
+    justify-content: center; /* Items ko center mein laya */
+    gap: 0; /* Menu items ke beech ki space bilkul kam kar di */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .sidebar li {
+    /* Padding aur font size ko itna rakha ki touch asan ho par jagah kam le */
+    padding: 6px 12px;
+    font-size: 13px; 
+    border-radius: 6px;
+    white-space: nowrap; /* Text ko ek line mein rakhne ke liye */
+  }
+
+  /* Logout button ko bhi line mein lane ke liye */
+  .logout-btn {
+    margin: 0 !important;
+    padding: 6px 12px !important;
+    font-size: 13px !important;
+  }
+
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .form-card {
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .summary-cards {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+
+
+ 
+}
+
+/* iPad Air & Similar Tablets (Specifically targeting 820px to 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  
+  .dashboard-wrapper {
+    flex-direction: column;
+    padding: 10px;
+    gap: 15px;
+  }
+
+  /* Sidebar ko 'Top Navigation' ki tarah behave karwayenge */
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    padding: 10px 15px;
+  }
+
+  .sidebar ul {
+    display: flex;
+    flex-wrap: wrap; /* Agar items zyada ho toh next line mein aa jayein */
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+
+  .sidebar li {
+    flex: 1; /* Saare items barabar jagah lein */
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 14px; /* iPad par thoda bada font acha lagta hai */
+    font-weight: 500;
+  }
+
+  /* Logout Button ko right side mein fix karna */
+  .logout-btn {
+    color: #ff4d4f;
+    border-radius: 8px;
+  }
+
+  /* Main Content adjustments */
+  .main-content {
+    padding: 15px 5px;
+    width: 100%;
+  }
+
+  /* Form Grid: iPad par 2 columns ache lagte hain bajaye 1 ke */
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 1fr ki jagah 2 columns */
+    gap: 20px;
+  }
+
+  /* Agar koi card full width chahiye toh use handle karein */
+  .form-card {
+    padding: 20px;
+    height: 100%;
+  }
+
+  /* Summary Cards ko row mein rakhein (iPad screen wide hoti hai) */
+  .summary-cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .summary-card {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  
+}
+
+
+
+
+
+
+/* Small Mobile (425px and below) */
+@media (max-width: 447px) {
+  .sidebar {
+    padding: 15px 8px;
+  }
+
+  .sidebar li {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .sidebar ul li {
+    margin: 0;       /* List items ka margin 0 karein */
+    padding: 10px 0;  /* Agar thoda gap chahiye toh sirf yahan control karein */
+  }
+
+  .main-content {
+    padding: 10px;
+  }
+
+  .form-card input,
+  .form-card select,
+  .form-card textarea {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+
+
+/* Date input container styling */
+.modern-date-input {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  flex-direction: row; /* Laptop jaisa row layout */
+  align-items: center;
+  justify-content: space-between; /* Text left, Icon right */
+  
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 15px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Chrome/Safari mobile browsers ke default appearance ko override karne ke liye */
+.modern-date-input::-webkit-datetime-edit {
+  display: flex;
+  color: #333;
+}
+
+/* Calendar icon ko hamesha right side mein push karne ke liye */
+.modern-date-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  filter: invert(0.5); /* Icon color adjust karne ke liye */
+  order: 2; /* Ensure icon is at the end */
+}
+
+
+
+/* Mobile responsive adjustments */
+@media screen and (max-width: 768px) {
+  .modern-date-input {
+    padding: 12px;
+    font-size: 15px; /* Mobile par thoda clean dikhne ke liye */
+  }
+
+  /* Placeholder logic (Agar date select nahi hai) */
+  .modern-date-input:not(:focus):not(:valid)::before {
+    content: attr(data-placeholder);
+    color: #999;
+    flex: 1;
+  }
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+
+  .sales-table th,
+  .sales-table td {
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+
+  /* Date column styling */
+  .sales-table td.date-cell,
+  .sales-table th.date-cell {
+    min-width: 110px;
+    white-space: nowrap;       /* Date break na ho */
+    font-size: 12px;
+    color: #64748b;
+  }
+
+}
+
+.recent-order-card {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-top: 20px;
+  width: 100%;
+}
+
+.recent-order-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.recent-order-card p {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.recent-order-card strong {
+  color: #555;
+}
+
+
+/* ===========================================
+   MEDIA QUERIES (RESPONSIVE ACCESS)
+   =========================================== */
+
+/* Tablets & Small Desktops (upto 768px) */
+@media (max-width: 768px) {
+  .view-orders-modal {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+/* Mobile Devices (Large, Medium, Small - 480px and below) */
+@media (max-width: 500px) {
+  .view-orders-modal {
+    width: 95%;
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  /* Table ko Hide karke Cards mein badalna */
+  .view-orders-table thead {
+    display: none;
+    /* Mobile par headers ki zaroorat nahi card layout mein */
+  }
+
+  .view-orders-table,
+  .view-orders-table tbody,
+  .view-orders-table tr,
+  .view-orders-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .view-orders-table tr {
+    background: #fbfcfd;
+    border: 1px solid #edf2f7;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    padding: 10px;
+  }
+
+  .view-orders-table td {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 8px;
+    text-align: right;
+  }
+
+  /* Labels add karna mobile par table cells ke liye */
+  .view-orders-table td::before {
+    content: attr(data-label);
+    /* Iske liye HTML mein data-label="Item" add karein */
+    font-weight: 600;
+    color: #64748b;
+    font-size: 13px;
+    float: left;
+  }
+
+  .view-orders-table td:last-child {
+    color: #2c7be5;
+    border-top: 1px dashed #e2e8f0;
+    margin-top: 8px;
+    padding-top: 10px;
+    font-size: 16px;
+  }
+
+  .view-orders-close {
+    padding: 14px;
+    /* Touch target bada karne ke liye */
+    font-size: 15px;
+  }
+}
+
+
+/* --- Responsive Adjustments using Media Queries --- */
+
+/* 1. Medium Screens (Tablets - 768px and below) */
+@media screen and (max-width: 768px) {
+  .premium-card {
+    padding: 15px;
+  }
+
+  .premium-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .mini-table td {
+    font-size: 0.85rem;
+    /* Tab ma thodu nanu lakhan */
+  }
+}
+
+/* 2. Small Screens (Mobile - 480px and below) */
+@media screen and (max-width: 480px) {
+  .premium-card {
+    padding: 12px;
+    border-radius: 8px;
+    width: 315px;
+  }
+
+  /* Mobile ma column width fix karva mate */
+  .mini-table th:nth-child(1),
+  .mini-table td:nth-child(1) {
+    width: 45%;
+    /* Name column larger */
+  }
+
+  /* Mobile ma 'Orders' column center alignment important che */
+  .mini-table th:nth-child(2),
+  .mini-table td:nth-child(2) {
+    text-align: center;
+    width: 20%;
+  }
+
+  /* Price column right alignment */
+  .mini-table th:nth-child(3),
+  .mini-table td:nth-child(3) {
+    text-align: right;
+    width: 35%;
+  }
+}
+
+/* 3. Large Screens (Desktops - 1024px and above) */
+@media screen and (min-width: 1024px) {
+  .premium-card {
+    padding: 30px;
+    max-width: 100%;
+    /* Dashboard grid ma fit thava mate */
+  }
+
+  .mini-table td {
+    padding: 16px 10px;
+  }
+}
+
+/* --- Alignment Fixes --- */
+.mini-table th:nth-child(2),
+.mini-table td:nth-child(2) {
+  text-align: center;
+}
+
+.mini-table th:nth-child(3),
+.mini-table td:nth-child(3) {
+  text-align: right;
+}
+
+.mini-table tr:hover td {
+  background-color: #fffaf0;
+  transition: 0.2s;
+}
+
+/* OVERLAY */
+.pdf-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+
+/* MODAL BOX */
+.pdf-modal-box {
+  background: white;
+  width: 380px;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/* HEADER */
+.pdf-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pdf-close-btn {
+  background: #f3f4f6;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+/* ICON */
+.pdf-modal-icon {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.pdf-modal-icon img {
+  width: 80px;
+}
+
+
+/* FILE NAME */
+.pdf-modal-filename {
+  text-align: center;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+
+/* DETAILS BOX */
+.pdf-modal-details {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 15px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+}
+
+.active-status {
+  color: green;
+}
+
+
+/* BUTTONS */
+.pdf-modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.pdf-modal-actions button {
+  flex: 1;
+  margin: 4px;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* BUTTON COLORS */
+.edit-btn {
+  background: #f3f4f6;
+}
+
+.download-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.share-btn {
+  background: #f3f4f6;
+}
+
+
+
+/* STATUS DOT */
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background: #22c55e;
+  border-radius: 50%;
+}
+
+/* DOCUMENT TITLE */
+.documents-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.action-icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* Dono buttons ke beech ki doori */
+}
+
+
+/* ============================================================
+   RESPONSIVE DESIGN (Tablets & Mobile)
+   ============================================================ */
+
+/* --- Tablet View (iPads/Tablets) --- */
+@media screen and (max-width: 1024px) {
+  .login-glass-card {
+    max-width: 380px;
+    padding: 40px 30px;
+  }
+  
+  .login-header h1 {
+    font-size: 2rem;
+  }
+}
+
+/* --- Mobile View (Phones) --- */
+@media screen and (max-width: 480px) {
+  .login-container-rivaaj {
+    /* Optional: Change background for mobile to save data/loading time */
+    background-attachment: scroll; 
+    align-items: center; /* Form shifts slightly up on phones */
+    
+  }
+
+  .login-glass-card {
+    width: 90%; /* Take up most of the screen width */
+    max-width: none;
+    padding: 30px 20px;
+    margin: 0 15px;
+    backdrop-filter: blur(10px); /* Slightly less blur for mobile performance */
+  }
+
+  .brand-icon {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .login-header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+
+  .login-header p {
+    font-size: 0.8rem;
+    margin-bottom: 30px;
+  }
+
+  .input-group-modern {
+    margin-bottom: 30px;
+  }
+
+  .login-btn-modern {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  /* Adjust Modal for Mobile */
+  .modal-content-pop {
+    width: 85%;
+    padding: 30px 20px;
+  }
+}
+
+/* --- Small Mobile View (Older/Smaller Phones) --- */
+@media screen and (max-width: 320px) {
+  .login-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .login-glass-card {
+    padding: 20px 15px;
+  }
+}
+
+/* --- Landscape Mode (When phone is tilted) --- */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .login-container-rivaaj {
+    align-items: flex-start;
+    padding: 20px 0;
+    overflow-y: auto; /* Allow scrolling if screen is too short */
+  }
+  
+  .login-glass-card {
+    margin-bottom: 20px;
+  }
+}
+

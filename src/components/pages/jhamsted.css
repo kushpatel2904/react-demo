@@ -1,0 +1,150 @@
+/* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Screen ke bahar jane se rokta hai */
+}
+
+/* ================= HERO SECTION ================= */
+.hero-section-JHamsted {
+  position: relative;
+  height: 600px;
+  width: 100%; /* Fixed 1600px ko 100% kiya overflow rokne ke liye */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hero-overlay-JHamsted {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-title-JHamsted {
+  margin-top: 100px; /* Tablet/Mobile par center alignment flex se hoga */
+  padding-left: 10%; 
+  font-size: 60px;
+  font-weight: 500;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+/* ================= SUIT SECTION ================= */
+.suit-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; /* Desktop par content ko limit mein rakhta hai */
+  margin: 60px auto;
+  padding: 0 40px;
+  gap: 70px;
+}
+
+.suit-text {
+  flex: 1; /* Fixed 80% width ki jagah flex use kiya */
+  display: flex;
+  flex-direction: column;
+}
+
+.fabrics-text {
+  font-size: 1.3rem;
+  color: #444;
+  margin-bottom: 20px;
+  width: 100%; /* 130% overflow kar raha tha, 100% fix kiya */
+  line-height: 1.6;
+}
+
+.suit-text h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.suit-text h5, .suit-text h6 {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.suit-image {
+  flex: 1; /* Sidebar scaling fix */
+  display: flex;
+  justify-content: center;
+}
+
+.suit-image img {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  display: block;
+
+}
+
+/* ================= TABLET (iPad Air) ================= */
+@media screen and (max-width: 1024px) {
+  
+  .hero-section-JHamsted {
+    height: 450px;
+    justify-content: center; /* Title center mein aayega */
+  }
+
+  .hero-title-JHamsted {
+    padding-left: 0 !important;
+    margin-top: 0 !important;
+    font-size: 42px;
+    text-align: center;
+    width: 90%;
+  }
+
+  .suit-section {
+    flex-direction: column; /* Tablet par stack vertically */
+    padding: 50px 20px;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .suit-text, .suit-image {
+    width: 100%;
+    align-items: center; /* Text elements ko center karega */
+  }
+
+  .fabrics-text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-container2 {
+    height: 50vh;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .hero-section-JHamsted {
+    height: 350px;
+  }
+
+  .hero-title-JHamsted {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .suit-text h1 {
+    font-size: 32px;
+  }
+
+  .about-values {
+    padding: 60px 20px;
+  }
+}

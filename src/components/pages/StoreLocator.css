@@ -1,0 +1,438 @@
+/* ================= GLOBAL ================= */
+* {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f8f8f8;
+  color: #333;
+}
+
+/* ================= HERO SECTION ================= */
+.hero-section-store {
+  color: #fff;
+  text-align: left;
+  padding: 450px 60px 0 30px;
+  /* more space from top, left, bottom, right */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 110vh;
+  overflow: hidden;
+  transition: background 0.5s ease-in-out;
+}
+
+
+
+.hero-section-store::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+.hero-content-store {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  /* limit width */
+  animation: fadeInUp 1s ease forwards;
+}
+
+/* Hero title */
+.hero-content-store h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+/* Hero description */
+.hero-content-store p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* Hero button */
+.hero-btn-store {
+  padding: 12px 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-btn-store:hover {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ================= SEARCH SECTION ================= */
+.search-section {
+  background: #fff;
+  padding: 60px 6%;
+  text-align: center;
+}
+
+.section-badge {
+  display: inline-block;
+  background: #fbbf24;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.search-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.dropdowns {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.dropdowns select {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  min-width: 160px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  max-width: 700px;
+  margin: auto;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 14px;
+  border-radius: 6px 0 0 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+.search-box button {
+  background: #e31837;
+  border: none;
+  color: #fff;
+  padding: 0 24px;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.search-box button:hover {
+  background: #b10f2a;
+}
+
+/* ================= STORE LIST ================= */
+.store-list {
+  padding: 60px 6%;
+}
+
+.store-list-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.store-list-header h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.store-list-header p {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* ================= STORE CARD ================= */
+.store-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.store-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.store-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.store-images {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+}
+
+.store-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.store-card:hover .store-images img {
+  transform: scale(1.05);
+}
+
+.store-content {
+  padding: 20px;
+}
+
+.store-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.address {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.meta {
+  display: flex;
+  gap: 15px;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+}
+
+.open {
+  color: green;
+  font-weight: 600;
+}
+
+/* BUTTONS INSIDE CARD */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.primary {
+  background: #e31837;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.primary:hover {
+  opacity: 0.85;
+}
+
+.outline {
+  background: transparent;
+  border: 1px solid #e31837;
+  color: #e31837;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.outline:hover {
+  background: #e31837;
+  color: #fff;
+}
+
+/* ================= PAGINATION ================= */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pagination .active {
+  background: #e31837;
+  color: #fff;
+  border-color: #e31837;
+}
+
+
+/* ============================================================
+   RESPONSIVE DESIGN (Tablets & Mobile)
+   ============================================================ */
+
+/* --- Tablet View (iPads/Tablets - 1024px and below) --- */
+@media screen and (max-width: 1024px) {
+  .hero-section-store {
+    padding: 300px 40px 0 30px; /* Reducing top padding */
+    min-height: 80vh;
+  }
+
+  .hero-content-store h1 {
+    font-size: 2.5rem;
+  }
+
+  .store-cards {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+}
+
+/* --- Small Tablet / Large Mobile (768px and below) --- */
+@media screen and (max-width: 768px) {
+  .hero-section-store {
+    padding: 200px 20px 0 20px;
+    text-align: center;
+    justify-content: center; /* Center align for tablet */
+    align-items: center;
+  }
+
+  .hero-content-store {
+    max-width: 100%;
+  }
+
+  .hero-content-store h1 {
+    font-size: 2.2rem;
+  }
+
+  /* Search Section Adjustments */
+  .dropdowns {
+    flex-wrap: wrap; /* Dropdowns will wrap if no space */
+    justify-content: center;
+  }
+
+  .dropdowns select {
+    flex: 1;
+    min-width: 140px;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+}
+
+/* --- Mobile View (Phones - 480px and below) --- */
+@media screen and (max-width: 480px) {
+  /* Hero Section */
+  .hero-section-store {
+    padding: 150px 15px 50px 15px;
+    min-height: 60vh;
+  }
+
+  .hero-content-store h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content-store p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-btn-store {
+    width: 100%; /* Full width button on mobile */
+    padding: 15px;
+  }
+
+  /* Search Section */
+  .search-section {
+    padding: 40px 15px;
+  }
+
+  .dropdowns {
+    flex-direction: column; /* Stack dropdowns vertically */
+    gap: 10px;
+  }
+
+  .dropdowns select {
+    width: 100%;
+  }
+
+  .search-box {
+    flex-direction: column; /* Stack input and button */
+    gap: 10px;
+  }
+
+  .search-box input {
+    border-radius: 6px; /* Round all corners */
+    width: 100%;
+  }
+
+  .search-box button {
+    border-radius: 6px;
+    padding: 14px;
+    width: 100%;
+  }
+
+  /* Store Cards */
+  .store-list {
+    padding: 40px 15px;
+  }
+
+  .store-cards {
+    grid-template-columns: 1fr; /* Single column on mobile */
+  }
+
+  .store-images {
+    height: 200px; /* Slightly taller images for better look on mobile */
+  }
+
+  .actions {
+    flex-direction: column; /* Buttons stack on top of each other */
+  }
+
+  .actions button {
+    width: 100%;
+  }
+
+  /* Pagination */
+  .pagination {
+    flex-wrap: wrap;
+  }
+}
+
+/* --- Landscape Mode (Phones) --- */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .hero-section-store {
+    padding-top: 80px;
+    min-height: 120vh; /* More height for landscape scroll */
+  }
+}

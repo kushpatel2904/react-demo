@@ -1,0 +1,499 @@
+.hero-section-linen {
+  position: relative;
+  /* overlay & content mate */
+  height: 640px;
+  /* hero section height */
+  width: 1600px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  /* vertically center content */
+}
+
+/* Black overlay with inset effect */
+.hero-overlay-linen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Hero main title */
+.hero-title-linen {
+  margin-top: 300px;
+  padding-left: 300px;
+  font-size: 69px;
+  font-weight: 500;
+  color: white;
+  position: relative;
+  z-index: 2;
+  /* text overlay ke upar */
+  text-transform: uppercase;
+}
+
+.linen-image img {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.linen-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 100px;
+  gap: 60px;
+}
+
+.linen-text {
+  width: 120%;
+  margin-left: 10px;
+}
+
+.linen-text h1 {
+  margin-left: 20px;
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.linen-text h5 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #444;
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
+.linen-text h6 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #444;
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
+.linen-image {
+  width: 100%;
+}
+
+.linen-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+.linenclub-image img {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.linenclub-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 100px;
+  gap: 60px;
+}
+
+.linenclub-text {
+  width: 120%;
+}
+
+.linenclub-text h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.linenclub-text h5 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #444;
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
+.linenclub-text h6 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #444;
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
+.linenclub-image {
+  width: 60%;
+}
+
+.linenclub-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* pehle hidden */
+.scroll-hide {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+/* scroll par visible */
+.scroll-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+
+/* Hero container full screen */
+.hero-container2 {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  /* prevent extra scroll */
+}
+
+/* Slider setup */
+.hero-slider {
+  gap: 10px;
+  display: flex;
+  height: 100%;
+  transition: transform 5s ease-in-out;
+}
+
+/* Each slide full screen */
+.hero-image {
+  min-width: 100vw;
+  height: 100%;
+  display: flex;
+  /* enable flexbox */
+  justify-content: center;
+  /* horizontal center */
+  align-items: center;
+  /* vertical center */
+}
+
+.hero-image img {
+  width: 120%;
+  max-height: 85%;
+  object-fit: contain;
+  /* puri image dikhegi */
+  display: block;
+}
+
+
+
+.video-section h2 {
+  font-size: 28px;
+  /* clear, readable size */
+  font-weight: 700;
+  /* bold heading */
+  color: #222;
+  /* dark text color */
+  text-align: center;
+  /* center the heading */
+  margin-bottom: 25px;
+  /* space below for the video */
+  letter-spacing: 1px;
+  /* subtle spacing for style */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* modern font */
+  text-transform: uppercase;
+  /* optional: uppercase text */
+}
+
+/* Optional: small underline effect */
+.video-section h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #f06a6a;
+  /* accent color */
+  margin: 10px auto 0;
+  /* centered underline with space */
+  border-radius: 2px;
+  /* slightly rounded line */
+}
+
+
+
+/* Values Section */
+.about-values {
+  background: #f8f8f8;
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.about-values h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.values-cards {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.value-card {
+  background: white;
+  padding: 30px;
+  width: 280px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+}
+
+.value-card h3 {
+  margin-bottom: 10px;
+  color: #000;
+}
+
+
+@media screen and (max-width: 1024px) {
+
+  /* HERO SECTION */
+  .hero-section-linen {
+    width: 100%;
+    height: 420px;
+  }
+
+  .hero-title-linen {
+    margin-top: 0;
+    padding-left: 0;
+    font-size: 42px;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* LINEN SECTION */
+  .linen-section,
+  .linenclub-section {
+    flex-direction: column;
+    padding: 50px 30px;
+    gap: 30px;
+  }
+
+  .linen-text,
+  .linenclub-text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .linen-text h1,
+  .linenclub-text h1 {
+    font-size: 36px;
+    margin-left: 0;
+  }
+
+  .linen-image,
+  .linenclub-image {
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+
+  /* HERO */
+  .hero-section-linen {
+    height: 360px;
+  }
+
+  .hero-title-linen {
+    font-size: 30px;
+    padding: 0 20px;
+  }
+
+  /* SLIDER */
+  .hero-image img {
+    width: 100%;
+    max-height: 70%;
+  }
+
+  /* TEXT */
+  .linen-text h1,
+  .linenclub-text h1 {
+    font-size: 28px;
+  }
+
+  .linen-text h5,
+  .linen-text h6,
+  .linenclub-text h5,
+  .linenclub-text h6 {
+    font-size: 1rem;
+  }
+
+  /* VALUES */
+  .about-values {
+    padding: 60px 20px;
+  }
+
+  .about-values h2 {
+    font-size: 26px;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+
+  /* HERO */
+  .hero-section-linen {
+    height: 300px;
+  }
+
+  .hero-title-linen {
+    font-size: 22px;
+  }
+
+  
+  /* TEXT */
+  .linen-text h1,
+  .linenclub-text h1 {
+    font-size: 24px;
+  }
+
+  .linen-text h5,
+  .linen-text h6,
+  .linenclub-text h5,
+  .linenclub-text h6 {
+    font-size: 0.95rem;
+  }
+
+  /* VALUE CARDS */
+  .value-card {
+    width: 100%;
+  }
+}
+
+/* ================= SHARED SECTION STYLE ================= */
+.linen-content-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1300px;
+  margin: 60px auto;
+  padding: 0 5%;
+}
+
+/* Alternate Layout: Ek section mein image left, dusre mein right (Optional) */
+.linen-content-section:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+
+.linen-text-wrapper {
+  flex: 1.2;
+}
+
+.linen-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.linen-image-wrapper img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* Typography Set */
+.h1 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #444;
+  line-height: 1.2;
+}
+
+.h5 {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.h6 {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #666;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.linen-list {
+  list-style: none;
+  padding: 0;
+}
+
+.linen-list li {
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 0.95rem;
+  position: relative;
+  padding-left: 20px;
+}
+
+.linen-list li::before {
+  content: "•";
+  color: #c4a484; /* Linen color theme */
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* ================= TABLET & MOBILE FIX ================= */
+@media (max-width: 1024px) {
+  .linen-content-section {
+    flex-direction: column !important; /* Force stack on mobile */
+    text-align: center;
+    gap: 40px;
+  }
+
+  .linen-text-wrapper {
+    order: 2; /* Text niche aayega */
+  }
+
+  .linen-image-wrapper {
+    order: 1; /* Image top par aayegi */
+    width: 100%;
+  }
+
+  .linen-list li {
+    padding-left: 0;
+    text-align: center;
+  }
+  
+  .linen-list li::before {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .h1 {
+    font-size: 24px;
+  }
+  
+  .h5, .h6 {
+    font-size: 0.95rem;
+  }
+}

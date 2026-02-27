@@ -1,0 +1,379 @@
+/* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* ================= HERO SECTION ================= */
+.hero-section-arvind {
+  position: relative;
+  height: 640px;
+  width: 1600px;
+  max-width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+/* Overlay */
+.hero-overlay-arvind {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Hero Title */
+.hero-title-arvind {
+  margin-top: 200px;
+  padding-left: 200px;
+  font-size: 50px;
+  font-weight: 500;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+/* ================= ARVIND SECTION ================= */
+.arvind-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 100px;
+  gap: 60px;
+}
+
+.arvind-text {
+  width: 120%;
+  margin-left: 10px;
+}
+
+.arvind-text h1 {
+  margin-left: 20px;
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.arvind-text h5,
+.arvind-text h6 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.arvind-image {
+  width: 100%;
+}
+
+.arvind-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+/* ================= ARVIND SECTION LAYOUT ================= */
+.arvindsuiting-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1300px;
+  margin: 80px auto;
+  padding: 0 5%;
+}
+
+/* Text Wrapper */
+.arvindsuiting-text {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+}
+
+.arvindsuiting-text h1 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  color: #444;
+  margin-bottom: 25px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* Paragraph Content Box */
+.arvindsuiting-text .paragraph-contect {
+  width: 100%; /* Resetting old width */
+  margin: 0;
+  text-align: left;
+}
+
+.arvindsuiting-text .h5 {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-align: justify;
+}
+
+.arvindsuiting-text .h6 {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 15px;
+  font-weight: 400;
+  text-align: justify;
+}
+
+/* Image Wrapper */
+.arvindsuiting-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.arvindsuiting-image img {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.arvindsuiting-image img:hover {
+  transform: scale(1.02);
+}
+
+/* ================= TABLET & MOBILE RESPONSIVENESS ================= */
+
+@media (max-width: 1024px) {
+  .arvindsuiting-section {
+    flex-direction: column !important; /* Stack elements vertically */
+    text-align: center;
+    gap: 40px;
+    padding: 60px 20px;
+  }
+
+  /* Image ko top par laane ke liye order property */
+  .arvindsuiting-image {
+    order: 1; 
+    width: 100%;
+  }
+
+  .arvindsuiting-text {
+    order: 2;
+    width: 100%;
+  }
+
+  .arvindsuiting-text h1 {
+    text-align: center;
+  }
+
+  .arvindsuiting-text .h5, 
+  .arvindsuiting-text .h6 {
+    text-align: center; /* Center text for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .arvindsuiting-text h1 {
+    font-size: 24px;
+  }
+  
+  .arvindsuiting-text .h5 {
+    font-size: 1rem;
+  }
+  
+  .arvindsuiting-text .h6 {
+    font-size: 0.95rem;
+  }
+}
+
+
+/* ================= SCROLL EFFECT ================= */
+.scroll-hide {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+.scroll-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= SLIDER ================= */
+.hero-container2 {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-slider {
+  display: flex;
+  height: 100%;
+  transition: transform 5s ease-in-out;
+}
+
+.hero-image {
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  max-height: 85%;
+  object-fit: contain;
+}
+
+
+/* ================= VIDEO TITLE ================= */
+.video-section h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.video-section h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #f06a6a;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ================= VALUES ================= */
+.about-values {
+  background: #f8f8f8;
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.about-values h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.values-cards {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.value-card {
+  width: 280px;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+
+  .hero-section-arvind {
+    height: 420px;
+  }
+
+  .hero-title-arvind {
+    margin-top: 0;
+    padding-left: 0;
+    text-align: center;
+    font-size: 36px;
+    width: 100%;
+  }
+
+  .arvind-section,
+  .arvindsuiting-section {
+    flex-direction: column;
+    padding: 50px 30px;
+    text-align: center;
+  }
+
+  .arvind-text {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .arvindsuiting-image {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .arvindsuiting-image img {
+    width: 100%;
+  }
+
+  .arvind-image img {
+    height: auto;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  .hero-section-arvind {
+    height: 360px;
+  }
+
+  .hero-title-arvind {
+    font-size: 28px;
+    padding: 0 20px;
+  }
+
+  .arvind-text h1,
+  .arvindsuiting-text h1 {
+    font-size: 30px;
+  }
+
+  .paragraph-contect {
+    font-size: 1.05rem;
+  }
+
+  .container2-h5,
+  .container2-h6,
+  .arvind-text h5,
+  .arvind-text h6 {
+    font-size: 1rem;
+  }
+
+  .hero-container2 {
+    height: auto;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+@media (max-width: 480px) {
+
+  .hero-section-arvind {
+    height: 300px;
+  }
+
+  .hero-title-arvind {
+    font-size: 22px;
+  }
+
+ 
+
+  .value-card {
+    width: 100%;
+  }
+}

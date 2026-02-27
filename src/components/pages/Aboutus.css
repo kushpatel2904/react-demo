@@ -1,0 +1,2366 @@
+/* Common scroll animation */
+.scroll-hide {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease;
+}
+
+.scroll-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===========================
+   LUXURY OVERLAY - EVOLVED
+=========================== */
+.luxury-overlay {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  /* Pure white for class */
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+  overflow: hidden;
+  /* Smooth Slide-in from bottom */
+  animation: revealUp 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+
+}
+
+/* Close Button - Floating Design */
+.overlay-close {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  cursor: pointer;
+  color: #111;
+  padding: 10px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  transition: all 0.4s ease;
+  background: white;
+}
+
+.overlay-close:hover {
+  background: #111;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.overlay-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  /* Dynamic ratio */
+  gap: 80px;
+  max-width: 1300px;
+  width: 100%;
+  align-items: center;
+}
+
+/* Text Side Styling */
+.overlay-text-side {
+  animation: fadeInUp 1s ease 0.3s both;
+  /* Slight delay for text */
+}
+
+.gold-text {
+  color: #b8924a;
+  font-weight: 600;
+  letter-spacing: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.overlay-text-side h2 {
+  font-size: 64px;
+  line-height: 1.1;
+  margin-bottom: 30px;
+  font-family: 'Playfair Display', serif;
+  color: #1a1a1a;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.overlay-text-side p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #555;
+  max-width: 500px;
+  margin-bottom: 40px;
+}
+
+/* Feature List - Modern Minimalist */
+.feature-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.f-item {
+  font-size: 15px;
+  color: #1a1a1a;
+  padding: 15px;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.f-item strong {
+  color: #b8924a;
+  font-family: serif;
+}
+
+.f-item:hover {
+  background: #fafafa;
+  border-color: #b8924a;
+  transform: translateY(-5px);
+}
+
+/* Image Side - Abstract Luxury Frame */
+.overlay-image-side {
+  position: relative;
+  animation: fadeInUp 1s ease 0.5s both;
+}
+
+/* VIEW FULL COLLECTION - Main Button */
+.view-full-btn {
+  margin-top: 30px;
+  background: #1a1a1a;
+  /* Dark Elegant Black */
+  color: #ffffff;
+  padding: 16px 40px;
+  border: 1px solid #1a1a1a;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  /* Spacing for luxury look */
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect: Color and Slide */
+.view-full-btn:hover {
+  background: #b8924a;
+  /* Rivaaj Gold color */
+  border-color: #b8924a;
+  color: #fff;
+  letter-spacing: 4px;
+  /* Text thoda expand hoga */
+  transform: translateY(-5px);
+  /* Button halki si upar uthegi */
+  box-shadow: 0 10px 25px rgba(184, 146, 74, 0.3);
+}
+
+/* Click Effect */
+.view-full-btn:active {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(184, 146, 74, 0.2);
+}
+
+/* Optional: Button ke niche ek thin "Coming Soon" ya decorative line ke liye */
+.view-full-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  transition: width 0.4s ease;
+}
+
+.view-full-btn:hover::after {
+  width: 100%;
+}
+
+/* Link ki default styling hatane ke liye (Mobile/Web safe) */
+.luxury-overlay Link,
+.luxury-overlay a {
+  text-decoration: none;
+}
+
+.overlay-image-side img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 2px;
+  filter: grayscale(20%);
+  transition: all 0.6s ease;
+  box-shadow: 40px 40px 0px #f8f4f0;
+  /* Soft beige background shadow */
+}
+
+.overlay-image-side:hover img {
+  filter: grayscale(0%);
+  box-shadow: 20px 20px 0px #b8924a;
+  /* Turns gold on hover */
+}
+
+.image-caption {
+  position: absolute;
+  bottom: -30px;
+  right: -20px;
+  background: #1a1a1a;
+  color: white;
+  padding: 15px 25px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.occasion-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  /* Elegant serif font */
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
+  margin-bottom: 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.occasion-title span {
+  font-style: italic;
+  /* "Fine Fabrics" ko italic karke contrast dein */
+  padding-left: 10%;
+  /* Asymmetric offset */
+  font-family: 'Libre Baskerville', serif;
+}
+
+
+.back-navigation {
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+
+.back-to-site-btn {
+  background: transparent;
+  border: 1px solid #d4af37; /* Gold color to match your tag */
+  color: #d4af37;
+  padding: 10px 20px;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-to-site-btn:hover {
+  background: #d4af37;
+  color: #000;
+  letter-spacing: 3px;
+}
+
+/* Animations */
+@keyframes revealUp {
+  0% {
+    clip-path: inset(100% 0 0 0);
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* ===========================================
+   ULTIMATE RESPONSIVENESS (Mobile & Tablets)
+   =========================================== */
+
+@media (max-width: 1024px) {
+  .luxury-overlay {
+    padding: 80px 5% 40px 5%;
+    /* Top padding badha di taaki close button ke liye jagah rahe */
+    align-items: flex-start;
+    /* Mobile par top se start ho */
+    overflow-y: auto;
+    /* Scrolling enable kar di */
+  }
+
+  .overlay-grid {
+    grid-template-columns: 1fr;
+    /* Single column layout */
+    gap: 40px;
+    text-align: center;
+  }
+
+  .overlay-text-side h2 {
+    font-size: clamp(32px, 8vw, 48px);
+    /* Responsive font size */
+    margin-bottom: 20px;
+  }
+
+  .overlay-text-side p {
+    font-size: 16px;
+    margin: 0 auto 30px auto;
+  }
+
+  .feature-list {
+    grid-template-columns: 1fr;
+    /* List mobile par ek ke niche ek */
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  /* Tablet par image dikhani hai toh display block rakhein */
+  .overlay-image-side {
+    order: -1;
+    /* Image text se pehle dikhegi mobile par */
+  }
+
+  .overlay-image-side img {
+    height: 900px;
+    /* Mobile par choti height */
+    box-shadow: 20px 20px 0px #f8f4f0;
+    /* Choti shadow */
+  }
+
+  .overlay-close {
+    top: 20px;
+    right: 20px;
+    padding: 8px 15px;
+    font-size: 11px;
+  }
+}
+
+/* iPad Air Specific (Portrait & Landscape) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  
+  .luxury-overlay {
+    padding: 60px 40px;
+    display: flex;
+    align-items: center; /* Content ko screen ke beech mein rakhega */
+    overflow-y: hidden; /* iPad par scrolling ki zaroorat nahi padni chahiye */
+  }
+
+  .overlay-grid {
+    grid-template-columns: 1fr 1fr; /* iPad par 2 columns hi rakhein, ye sundar lagta hai */
+    gap: 30px;
+    text-align: left; /* Text ko wapas left-align karein */
+    align-items: center;
+  }
+
+  /* Image Side Adjustment */
+  .overlay-image-side {
+    order: 0; /* Image ko wapas right side pe le aayein */
+  }
+
+  .overlay-image-side img {
+    height: 550px; /* iPad ki height ke hisaab se perfect fitting */
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 15px 15px 0px #f8f4f0; /* Balanced shadow */
+  }
+
+  /* Text Side Adjustment */
+  .overlay-text-side h2 {
+    font-size: 40px; /* Tablet ke liye optimal size */
+    line-height: 1.2;
+  }
+
+  .overlay-text-side p {
+    font-size: 17px;
+    margin: 0 0 25px 0;
+    max-width: 100%; /* Text ko poori jagah lene dein */
+  }
+
+  /* Feature List in 2 Columns on Tablet */
+  .feature-list {
+    grid-template-columns: 1fr 1fr; /* Features ko side-by-side rakhein */
+    max-width: 100%;
+    gap: 15px;
+  }
+
+  /* Close Button Fix for iPad */
+  .overlay-close {
+    top: 30px;
+    right: 40px;
+    font-size: 12px;
+    padding: 10px 20px;
+    letter-spacing: 3px;
+  }
+}
+
+
+
+/* Chote Mobile Devices (iPhone SE, etc.) */
+@media (max-width: 480px) {
+  .overlay-text-side h2 {
+    font-size: 28px;
+  }
+
+  .view-full-btn {
+    width: 100%;
+    /* Full width button on small phones */
+    padding: 15px 20px;
+    letter-spacing: 2px;
+  }
+
+  .overlay-image-side img {
+    height: 480px;
+  }
+
+  .image-caption {
+    font-size: 10px;
+    padding: 10px 15px;
+    bottom: -15px;
+    right: 0;
+  }
+}
+
+/* Tablet (iPad) Landscape/Portrait Balance */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .feature-list {
+    grid-template-columns: 1fr 1fr;
+    /* Tablet par 2 columns theek lagenge */
+    max-width: 100%;
+  }
+}
+
+/* ================= ABOUT SECTION ================= */
+
+.about-wrapper {
+  position: relative;
+  padding: 100px 5%;
+  overflow: hidden;
+}
+
+.about-bg {
+  position: absolute;
+  /*vagr position: relative vagar badge aakha page ne corner ma jati rey*/
+  /*koi image ni uper text aevu mukvu hoi tyare aa use thai */
+}
+
+.about-card {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 60px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.about-images {
+  position: relative;
+  /*aapde top / left / right / bottom aapiye, to aeni original position thi move thase*/
+}
+
+.about-images .img-main {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.about-images .img-overlay {
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 60%;
+  border-radius: 12px;
+  border: 5px solid #ff8a00;
+  background: #fff;
+}
+
+.about-content h4 {
+  color: #ff8a00;
+  letter-spacing: 2px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.about-content h2 {
+  font-size: 34px;
+  color: #090909;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  color: #0f0f0f;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.about-content button {
+  background: linear-gradient(90deg, #ff8a00, #ff5f00);
+  border: none;
+  padding: 12px 28px;
+  color: #0b0b0b;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.about-content button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 138, 0, 0.4);
+}
+
+
+
+.why-wrapper {
+  padding: 120 5%;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.why-container .badge {
+  display: inline-block;
+  padding: 6px 18px;
+  border: 1px solid #ff8a00;
+  color: #ff8a00;
+  margin-bottom: 15px;
+}
+
+.why-container h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  max-width: 600px;
+  margin: 0 auto 60px;
+  color: #666;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.why-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.why-card img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.why-card:hover img {
+  transform: scale(1.1);
+}
+
+.card-overlay {
+  position: absolute;
+
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 25px;
+  color: #fff;
+}
+
+/* ================= MODERN ABOUT UI ================= */
+
+.about-ui-wrapper {
+  padding: 120px 5%;
+  display: flex;
+  justify-content: center;
+}
+
+.about-ui-card {
+  width: 90%;
+  background: #f9fbff;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 50px;
+  padding: 60px;
+  border-radius: 16px;
+  position: relative;
+  /*aapde top / left / right / bottom aapiye, to aeni original position thi move thase*/
+  overflow: hidden;
+}
+
+.about-ui-card::before {
+  position: absolute;
+  /*vagr position: relative vagar badge aakha page ne corner ma jati rey*/
+  /*koi image ni uper text aevu mukvu hoi tyare aa use thai */
+
+  background: repeating-linear-gradient(90deg,
+      rgba(0, 0, 0, 0.03),
+      rgba(0, 0, 0, 0.03) 30px,
+      transparent 30px,
+      transparent 60px);
+  z-index: 0;
+}
+
+.about-ui-image,
+.about-ui-content {
+  position: relative;
+  z-index: 1;
+}
+
+.about-ui-image img {
+  width: 100%;
+  height: 600px;
+  /* yaha value adjust kar sakte ho: 250px, 280px, 320px */
+  object-fit: cover;
+  border-radius: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+
+.image-border {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  width: 100%;
+  height: 100%;
+  border: 5px solid #ff8a00;
+  z-index: 1;
+}
+
+.about-ui-content .badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid #ff8a00;
+  color: #ff8a00;
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.about-ui-content h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.about-ui-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.read-more-btn {
+  margin-top: 20px;
+  background: #ff8a00;
+  border: none;
+  color: white;
+  padding: 12px 26px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.read-more-btn:hover {
+  background: #e57700;
+}
+
+.title-h2 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.hero-container {
+  background: #0a0c10;
+  /* Dark background fallback */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/public/images/Rivaaj3.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+.hero-content {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  justify-content: space-between;
+}
+
+.text-section {
+  flex: 1;
+  z-index: 10;
+}
+
+.text-section h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.text-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 400px;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.mint-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  padding: 12px 40px;
+  border-radius: 30px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.mint-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Image Grid Styling */
+.image-grid {
+  flex: 1;
+  position: relative;
+  height: 500px;
+}
+
+.nft-card {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nft-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.collections-title {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+
+.about-wrapper {
+  background: #f7f6f2;
+  padding: 100px 40px;
+  position: relative;
+  overflow: hidden;
+  font-family: "Arial", sans-serif;
+}
+
+.about-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+/* LEFT */
+.about-left {
+  position: relative;
+  /*aapde top / left / right / bottom aapiye, to aeni original position thi move thase*/
+}
+
+.img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.img-large {
+  height: 420px;
+}
+
+.img-small {
+  width: 260px;
+  height: 320px;
+  position: absolute;
+  /*vagr position: relative vagar badge aakha page ne corner ma jati rey*/
+  /*koi image ni uper text aevu mukvu hoi tyare aa use thai */
+  top: 120px;
+  right: -40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.about-caption {
+  margin-top: 40px;
+  max-width: 320px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* RIGHT */
+.about-right {
+  position: relative;
+  padding-top: 40px;
+}
+
+.year {
+  font-size: 160px;
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.06);
+  position: absolute;
+  top: -40px;
+  right: 0;
+}
+
+.about-text {
+  max-width: 320px;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.read-more {
+  font-size: 13px;
+  color: #000;
+  text-decoration: underline;
+  margin-bottom: 40px;
+  display: inline-block;
+}
+
+.right-images {
+  display: flex;
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.right-images img {
+  width: 240px;
+  height: 300px;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* WATERMARK */
+.brand-watermark {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 180px;
+  letter-spacing: 20px;
+  color: rgba(0, 0, 0, 0.04);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.titles-h2 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 60px;
+  /* 👈 YAHAN SPACE CONTROL */
+  font-size: 30px;
+}
+
+.about-ui-card {
+  width: 100%;
+  max-width: 1900px;
+  height: 900px;
+  background: #f9fbff;
+  padding: 40px 30px;
+  /* Card padding */
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  /* Left (image) + Right (content) */
+  gap: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- TEAM CARD UPDATES --- */
+.team-card {
+  cursor: pointer;
+}
+
+.img-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.view-profile {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(184, 134, 11, 0.9);
+  /* Gold */
+  color: white;
+  padding: 15px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.team-card:hover .view-profile {
+  transform: translateY(0);
+}
+
+/* --- FULL SCREEN DETAIL OVERLAY --- */
+.member-detail-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.overlay-bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.detail-content {
+  position: relative;
+  width: 85%;
+  max-width: 1100px;
+  background: #111;
+  border: 1px solid #333;
+  z-index: 10;
+  animation: slideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.close-button {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+}
+
+.detail-img-side img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
+
+.detail-info-side {
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gold-tag {
+  color: #b8860b;
+  letter-spacing: 4px;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.detail-info-side h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.role-text {
+  color: #888;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.divider {
+  width: 60px;
+  height: 2px;
+  background: #b8860b;
+  margin: 30px 0;
+}
+
+.bio-text {
+  color: #ccc;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+.social-links {
+  display: flex;
+  gap: 30px;
+  color: #b8860b;
+  font-size: 12px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+
+
+/* iPad Air Rotate Specific */
+@media screen 
+  and (min-width: 1024px) 
+  and (max-width: 1180px) 
+  and (orientation: landscape) {
+
+  .why-card img {
+    height: 400px;
+  }
+
+}
+
+/* --- RESPONSIVE ACCESS --- */
+
+/* 1. Tablets (iPad, Galaxy Tab) - Max 1024px */
+@media screen and (max-width: 1024px) {
+  .detail-content {
+    width: 90%;
+    max-height: 90vh;
+    /* Screen ke andar hi rahega */
+    overflow-y: auto;
+    /* Agar content lamba ho toh scroll hoga */
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+    /* Image upar, text niche */
+  }
+
+  .detail-img-side img {
+    height: 400px;
+    /* Tablet par choti height */
+  }
+
+  .detail-info-side {
+    padding: 40px;
+  }
+
+  .detail-info-side h2 {
+    font-size: 2.5rem;
+  }
+}
+
+/* 2. Large & Medium Mobiles (iPhone Pro Max, Pixel) - Max 768px */
+@media screen and (max-width: 768px) {
+  .detail-content {
+    width: 95%;
+  }
+
+  .detail-img-side img {
+    height: 350px;
+  }
+
+  .detail-info-side {
+    padding: 30px;
+  }
+
+  .detail-info-side h2 {
+    font-size: 2rem;
+  }
+
+  .bio-text {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+
+  /* Close button ko mobile par upar right corner mein set karne ke liye */
+  .close-button {
+    top: 10px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* 3. Small Mobiles (iPhone SE, Small Androids) - Max 480px */
+@media screen and (max-width: 480px) {
+  .detail-content {
+    width: 100%;
+    height: 100%;
+    /* Small mobile par pura screen cover karega */
+    max-height: 100vh;
+    border: none;
+  }
+
+  .detail-img-side img {
+    height: 280px;
+  }
+
+  .detail-info-side {
+    padding: 25px 20px;
+  }
+
+  .detail-info-side h2 {
+    font-size: 1.8rem;
+  }
+
+  .gold-tag {
+    letter-spacing: 2px;
+    font-size: 10px;
+  }
+
+  .social-links {
+    gap: 15px;
+    font-size: 10px;
+    flex-wrap: wrap;
+    /* Taki links ek niche ek aa sakein */
+  }
+
+  .divider {
+    margin: 20px 0;
+  }
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .member-detail-overlay {
+    padding: 20px;
+  }
+
+  .member-detail-modal {
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .detail-img-side img {
+    width: 100%;
+    height: auto;
+    /* fixed height remove karo */
+    max-height: 350px;
+    /* control height */
+    object-fit: cover;
+  }
+
+  .detail-content-side {
+    padding: 20px;
+  }
+
+  .detail-content-side h2 {
+    font-size: 24px;
+  }
+
+  .detail-content-side p {
+    font-size: 14px;
+  }
+
+}
+
+
+
+/* --- ANIMATIONS --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 900px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-img-side img {
+    height: 325px;
+  }
+
+  .detail-info-side {
+    padding: 30px;
+  }
+
+  .detail-info-side h2 {
+    font-size: 2rem;
+  }
+}
+
+
+/* Optional subtle background pattern */
+.about-ui-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* ================= SECTION TITLE ================= */
+.section-title {
+  font-weight: 700;
+  color: #FF6B35;
+  text-align: center;
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+  margin-top: 80px;
+}
+
+.content1 {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.team-section {
+  padding: 80px 6%;
+  background: #f5f5f5;
+  font-family: "Inter", sans-serif;
+}
+
+/* HEADER */
+.team-header {
+  max-width: 600px;
+  margin-bottom: 60px;
+}
+
+.team-subtitle {
+  font-size: 14px;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.team-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin: 10px 0;
+  color: #111;
+}
+
+.team-tagline {
+  font-size: 28px;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.team-desc {
+  font-size: 15px;
+  color: #777;
+  line-height: 1.6;
+}
+
+/* GRID */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+/* CARD */
+.team-card {
+  background: #eaeaea;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  transform: scale(1.1);
+}
+
+.team-card img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.team-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #111;
+}
+
+.team-card p {
+  font-size: 14px;
+  color: #777;
+}
+
+
+.collections-wrapper {
+  display: flex;
+  gap: 32px;
+  /* spacing zyada */
+  padding: 48px;
+  /* container bada */
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+  max-width: 1400px;
+  margin: 40px auto;
+}
+
+
+
+
+.collections-left {
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+}
+
+.thumb-list {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.collections-left h2 {
+  margin-bottom: 22px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #333;
+}
+
+.collection-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 14px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  background: #fff;
+  transition: all 0.25s ease;
+}
+
+.collection-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.collection-item span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+}
+
+.collection-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+.collection-item.active {
+  background: linear-gradient(135deg, #ffb37a, #ff944d);
+  color: #fff;
+}
+
+.collection-item.active span {
+  color: #fff;
+}
+
+
+.collections-right {
+  position: relative;
+  flex: 1;
+  height: 600px;
+  /* 👈 height badha di */
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.collections-right img {
+  max-width: 90%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.collections-right:hover img {
+  transform: scale(1.1);
+}
+
+
+
+
+.scroll-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+  /* 👈 5 images ke niche spacing */
+}
+
+
+.scroll-buttons button {
+  width: 35px;
+  height: 35px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.2s;
+}
+
+.scroll-buttons button:hover:not(:disabled) {
+  background-color: #555;
+}
+
+.scroll-buttons button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ============================================
+ RESPONSIVE DESIGN - MEDIA QUERIES
+ ============================================ */
+
+/* Tablet Devices (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+  .collections-wrapper {
+    padding: 35px 4%;
+    gap: 25px;
+  }
+
+  .collections-left {
+    width: 200px;
+  }
+
+  .collections-left h2 {
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  .collection-item {
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+
+  .collection-item img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .collection-item span {
+    font-size: 13px;
+  }
+
+  .collections-right {
+    height: 550px;
+  }
+
+  .overlay h3 {
+    font-size: 22px;
+  }
+
+  .overlay button {
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+
+  .scroll-buttons button {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+}
+
+/* Mobile Devices (480px - 768px) */
+@media screen and (max-width: 768px) {
+  .collections-wrapper {
+    flex-direction: column;
+    padding: 25px 3%;
+    gap: 20px;
+  }
+
+  .collections-left {
+    width: 100%;
+    order: 2;
+  }
+
+  .collections-left h2 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .thumb-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+
+  .collection-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 12px;
+    margin-bottom: 0;
+  }
+
+  .collection-item img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 8px;
+  }
+
+  .collection-item span {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .collections-right {
+    order: 1;
+    width: 100%;
+    height: 400px;
+    border-radius: 16px;
+  }
+
+  .collections-right img {
+    max-width: 95%;
+    max-height: 95%;
+  }
+
+  .overlay {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .overlay h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .overlay button {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+
+  .scroll-buttons {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .scroll-buttons button {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}
+
+/* Small Mobile Devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .collections-wrapper {
+    padding: 20px 2%;
+    gap: 15px;
+  }
+
+  .collections-left h2 {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .thumb-list {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+  }
+
+  .collection-item {
+    padding: 10px;
+  }
+
+  .collection-item img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .collection-item span {
+    font-size: 11px;
+  }
+
+  .collections-right {
+    height: 350px;
+    border-radius: 12px;
+  }
+
+  .overlay h3 {
+    font-size: 18px;
+  }
+
+  .overlay button {
+    padding: 9px 18px;
+    font-size: 11px;
+  }
+
+  .scroll-buttons button {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+}
+
+/* Extra Small Devices (max-width: 360px) */
+@media screen and (max-width: 360px) {
+  .collections-wrapper {
+    padding: 15px 2%;
+  }
+
+  .thumb-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .collections-right {
+    height: 300px;
+  }
+
+  .overlay h3 {
+    font-size: 16px;
+  }
+}
+
+/* Landscape Orientation for Mobile */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .collections-wrapper {
+    flex-direction: row;
+  }
+
+  .collections-left {
+    width: 180px;
+    order: 1;
+  }
+
+  .collections-right {
+    order: 2;
+    height: 450px;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .collections-right:hover img {
+    transform: none;
+  }
+
+  .collection-item:hover {
+    transform: none;
+  }
+}
+
+
+
+/* ============================================
+   RESPONSIVE DESIGN - MEDIA QUERIES
+   ============================================ */
+
+/* Tablet Devices (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+
+  /* About Wrapper */
+  .about-wrapper {
+    padding: 80px 4%;
+  }
+
+  .about-card {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 50px;
+  }
+
+  .about-images .img-overlay {
+    bottom: -30px;
+    right: -30px;
+    width: 50%;
+  }
+
+  .about-content h2 {
+    font-size: 28px;
+  }
+
+  /* About UI Card */
+  .about-ui-wrapper {
+    padding: 80px 4%;
+  }
+
+  .about-ui-card {
+    width: 95%;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 50px;
+    height: auto;
+  }
+
+  .about-ui-image img {
+    height: 400px;
+  }
+
+  /* Hero Container */
+  .hero-container {
+    min-height: 80vh;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .text-section h1 {
+    font-size: 2.8rem;
+  }
+
+  .text-section p {
+    font-size: 1rem;
+  }
+
+  .image-grid {
+    height: 400px;
+  }
+
+  .nft-card {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* Why Wrapper */
+  .why-wrapper {
+    padding: 80px 4%;
+  }
+
+  .why-container h2 {
+    font-size: 32px;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .why-card img {
+    height: 589px;
+  }
+
+  /* About Inner */
+  .about-wrapper {
+    padding: 80px 30px;
+  }
+
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .img-small {
+    position: static;
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    margin-top: 20px;
+  }
+
+  .year {
+    font-size: 120px;
+    top: -20px;
+  }
+
+  .right-images {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .right-images img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  /* Team Section */
+  .team-section {
+    padding: 60px 4%;
+  }
+
+  .team-title {
+    font-size: 36px;
+  }
+
+  .team-tagline {
+    font-size: 24px;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+  }
+
+  .team-card img {
+    height: 300px;
+  }
+
+  /* Section Title */
+  .section-title {
+    font-size: 24px;
+    margin-top: 60px;
+  }
+
+  .content1 {
+    font-size: 32px;
+    margin-right: 0;
+  }
+
+  .title-h2,
+  .titles-h2 {
+    font-size: 26px;
+  }
+}
+
+/* Mobile Devices (480px - 768px) */
+@media screen and (max-width: 768px) {
+
+  /* About Wrapper */
+  .about-wrapper {
+    padding: 60px 3%;
+  }
+
+  .about-card {
+    padding: 30px 20px;
+    gap: 30px;
+  }
+
+  .about-images .img-overlay {
+    bottom: -20px;
+    right: -20px;
+    width: 45%;
+    border-width: 3px;
+  }
+
+  .about-content h4 {
+    font-size: 12px;
+  }
+
+  .about-content h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .about-content p {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .about-content button {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+
+  /* About UI Card */
+  .about-ui-wrapper {
+    padding: 60px 3%;
+  }
+
+  .about-ui-card {
+    width: 100%;
+    padding: 30px 20px;
+    gap: 30px;
+  }
+
+  .about-ui-image img {
+    height: 300px;
+  }
+
+  .image-border {
+    top: -15px;
+    right: -15px;
+    border-width: 3px;
+  }
+
+  .about-ui-content .badge {
+    font-size: 11px;
+    padding: 5px 12px;
+  }
+
+  .about-ui-content h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .about-ui-content p {
+    font-size: 14px;
+  }
+
+  .read-more-btn {
+    padding: 10px 22px;
+    font-size: 14px;
+  }
+
+  /* Hero Container */
+  .hero-container {
+    min-height: 70vh;
+    padding: 20px;
+  }
+
+  .hero-content {
+    width: 95%;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .text-section {
+    text-align: center;
+  }
+
+  .text-section h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+  }
+
+  .text-section p {
+    font-size: 0.95rem;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .mint-button {
+    padding: 10px 30px;
+    font-size: 0.9rem;
+  }
+
+  .image-grid {
+    height: 300px;
+  }
+
+  .nft-card {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* Why Wrapper */
+  .why-wrapper {
+    padding: 60px 3%;
+  }
+
+  .why-container .badge {
+    padding: 5px 15px;
+    font-size: 11px;
+  }
+
+  .why-container h2 {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    margin-bottom: 40px;
+    padding: 0 10px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .why-card img {
+    height: 547px;
+  }
+
+  /* About Inner */
+  .about-wrapper {
+    padding: 60px 20px;
+  }
+
+  .about-inner {
+    gap: 40px;
+  }
+
+  .img-large {
+    height: 420px;
+  }
+
+  .img-small {
+    max-width: 250px;
+    margin-top: 15px;
+  }
+
+  .about-caption {
+    margin-top: 30px;
+    font-size: 13px;
+  }
+
+  .year {
+    font-size: 100px;
+    top: -10px;
+    right: -10px;
+  }
+
+  .about-text {
+    font-size: 13px;
+    max-width: 100%;
+  }
+
+  .right-images {
+    margin-top: 40px;
+  }
+
+  .right-images img {
+    max-width: 100%;
+    height: 650px;
+  }
+
+  .brand-watermark {
+    font-size: 120px;
+    letter-spacing: 10px;
+  }
+
+  /* Team Section */
+  .team-section {
+    padding: 50px 3%;
+  }
+
+  .team-header {
+    margin-bottom: 40px;
+  }
+
+  .team-subtitle {
+    font-size: 12px;
+  }
+
+  .team-title {
+    font-size: 28px;
+  }
+
+  .team-tagline {
+    font-size: 20px;
+  }
+
+  .team-desc {
+    font-size: 14px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .team-card {
+    padding: 18px;
+  }
+
+  .team-card img {
+    height: 514px;
+  }
+
+  .team-card h3 {
+    font-size: 16px;
+  }
+
+  .team-card p {
+    font-size: 13px;
+  }
+
+  /* Section Title */
+  .section-title {
+    font-size: 20px;
+    margin-top: 50px;
+  }
+
+  .content1 {
+    font-size: 24px;
+    margin-top: 15px;
+  }
+
+  .title-h2,
+  .titles-h2 {
+    font-size: 22px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+  }
+
+  .collections-title {
+    font-size: 20px;
+  }
+}
+
+/* Small Mobile Devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+
+  /* About Wrapper */
+  .about-wrapper {
+    padding: 40px 2%;
+  }
+
+  .about-card {
+    padding: 25px 15px;
+    gap: 25px;
+  }
+
+  .about-content h2 {
+    font-size: 20px;
+  }
+
+  .about-content p {
+    font-size: 13px;
+  }
+
+  .about-content button {
+    padding: 9px 20px;
+    font-size: 13px;
+  }
+
+  /* About UI Card */
+  .about-ui-wrapper {
+    padding: 40px 2%;
+  }
+
+  .about-ui-card {
+    padding: 25px 15px;
+  }
+
+  .about-ui-image img {
+    height: 250px;
+  }
+
+  .about-ui-content h2 {
+    font-size: 20px;
+  }
+
+  /* Hero Container */
+  .hero-container {
+    min-height: 60vh;
+    padding: 15px;
+  }
+
+  .text-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .text-section p {
+    font-size: 0.85rem;
+  }
+
+  .mint-button {
+    padding: 9px 25px;
+    font-size: 0.85rem;
+  }
+
+  .image-grid {
+    height: 250px;
+  }
+
+  .nft-card {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Why Wrapper */
+  .why-wrapper {
+    padding: 40px 2%;
+  }
+
+  .why-container h2 {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .why-card img {
+    height: 568px;
+  }
+
+  /* About Inner */
+  .about-wrapper {
+    padding: 40px 15px;
+  }
+
+  .img-large {
+    height: 250px;
+  }
+
+  .year {
+    font-size: 80px;
+  }
+
+  .brand-watermark {
+    font-size: 80px;
+    letter-spacing: 5px;
+  }
+
+  /* Team Section */
+  .team-section {
+    padding: 40px 2%;
+  }
+
+  .team-title {
+    font-size: 24px;
+  }
+
+  .team-tagline {
+    font-size: 18px;
+  }
+
+  .team-card img {
+    height: 250px;
+  }
+
+  /* Section Title */
+  .section-title {
+    font-size: 18px;
+  }
+
+  .content1 {
+    font-size: 20px;
+  }
+
+  .title-h2,
+  .titles-h2 {
+    font-size: 20px;
+  }
+}
+
+/* Extra Small Devices (max-width: 360px) */
+@media screen and (max-width: 360px) {
+  .about-content h2 {
+    font-size: 18px;
+  }
+
+  .text-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .why-container h2 {
+    font-size: 20px;
+  }
+
+  .team-title {
+    font-size: 20px;
+  }
+}
+
+/* Landscape Orientation for Mobile */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .hero-container {
+    min-height: 100vh;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+
+  .why-card:hover img,
+  .team-card:hover {
+    transform: none;
+  }
+}
+
+

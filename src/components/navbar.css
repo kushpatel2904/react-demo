@@ -1,0 +1,391 @@
+/* Body reset */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+}
+
+/* Navbar main container */
+.navbar {
+  height: 100px;
+  /* pehle agar 90–100px thi */
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* logo left, menu center/right */
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* Navbar shrink on scroll */
+.navbar.shrink {
+  padding: 8px 50px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  background: #fff;
+}
+
+/* Logo wrapper */
+.logo {
+  display: flex;
+  align-items: center;
+  /* menu ke center me align */
+  justify-content: flex-start;
+  margin: 0;
+}
+
+/* Logo image */
+.logo img {
+  height: 38px;
+  /* 👈 100px bahut zyada tha */
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  position: relative;
+  top: 22px;
+  /* 👈 logo ko niche laata hai */
+
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.2));
+}
+
+
+/* Hover effect */
+.logo img:hover {
+  transform: scale(1.08);
+  /* subtle zoom on hover */
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.3));
+}
+
+/* Navigation links container */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+/* Nav links items */
+.nav-links li {
+  position: relative;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Nav links anchor */
+.nav-links a,
+.brand-link {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+}
+
+/* Nav link hover underline effect */
+.nav-links a:hover,
+.brand-link:hover {
+  color: #b8963f;
+  /* premium gold hover */
+}
+
+.nav-links a::after,
+.brand-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #b8963f;
+  left: 0;
+  bottom: -3px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.brand-link:hover::after {
+  width: 100%;
+}
+
+/* Dropdown arrow */
+.arrow {
+  font-size: 12px;
+  margin-left: 4px;
+  position: relative;
+  top: -2px;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow on hover */
+.brand-dropdown:hover .arrow {
+  transform: rotate(180deg);
+}
+
+/* Brand dropdown menu */
+.brand-menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: #fff;
+  padding: 15px 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 6px;
+  min-width: 180px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  z-index: 999;
+}
+
+/* Show dropdown */
+.brand-dropdown:hover .brand-menu {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Dropdown links */
+.brand-menu a {
+  font-size: 14px;
+  color: #222;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Dropdown link hover */
+.brand-menu a:hover {
+  color: #b8963f;
+  /* gold hover */
+}
+
+/* CTA Button - Shop Now */
+.shop-btn {
+  background: linear-gradient(135deg, #b8963f, #ffd700);
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 25px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(184, 150, 63, 0.3);
+  margin-right: 10px;
+}
+
+/* Button hover */
+.shop-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(184, 150, 63, 0.4);
+}
+
+/* ============================================
+   RESPONSIVE NAVBAR + MOBILE HAMBURGER
+   ============================================ */
+
+/* Base tweaks for all screens */
+.navbar {
+  padding: 12px 48px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+/* Make sure logo doesn't overflow */
+.logo img {
+  max-width: 100%;
+  height: 80px;
+}
+
+/* Mobile title text (e.g. Dashboard / Rivaaj) */
+.mobile-title {
+  display: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin-left: 1px;
+}
+
+/* Hamburger icon - hidden on desktop */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 32px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.menu-toggle span {
+  width: 20px;
+  height: 2px;
+  background: #111827;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+}
+
+/* X animation when menu open */
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+.menu-close {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .navbar {
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .mobile-title {
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile-title img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .shop-btn {
+    display: block;
+    margin-left: auto;
+    padding: 7px 16px;
+    font-size: 12px;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 90px;
+    gap: 0;
+    transition: 0.4s ease;
+    z-index: 9999;
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+
+  /* ✅ Close button */
+  .nav-links .menu-close {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+  }
+
+  .nav-links.active .menu-close {
+    display: block;
+  }
+
+  .nav-links li {
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .nav-links a,
+  .brand-link {
+    display: block;
+    width: 100%;
+    padding: 18px 28px;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .brand-menu {
+    position: static;
+    display: none;
+    padding-left: 20px;
+    background: transparent;
+    box-shadow: none;
+  }
+  
+  /* 2. ✅ JAB CLICK HOGA (.active class), TAB YE KHULEGA */
+  .brand-dropdown.active .brand-menu {
+    max-height: 1000px;    /* Badi value se menu khul jayega */
+    opacity: 1;
+    padding: 10px 20px;    /* Khulne par padding wapas aa jayegi */
+  }
+
+  /* 3. Arrow ko rotate karein toggle par */
+  .brand-dropdown.active .arrow {
+    transform: rotate(180deg);
+  }
+
+  /* 4. Disable Hover for Tablet (iPad Air par hover stuck ho jata hai) */
+  .brand-dropdown:hover .brand-menu {
+    /* Isse hover par menu nahi khulega, sirf click par khulega */
+    max-height: 0; 
+    opacity: 0;
+  }
+  
+  /* Active hone par hi hover display ko na chede */
+  .brand-dropdown.active:hover .brand-menu {
+    max-height: 1000px;
+    opacity: 1;
+  }
+
+  .menu-close {
+    display: block;
+    position: fixed;   /* FIXED instead of absolute */
+    top: 22px;
+    right: 22px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10002;
+  }
+
+}
+
+  

@@ -1,0 +1,342 @@
+/* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* ================= HERO SECTION ================= */
+.hero-section-Raymond {
+  position: relative;
+  height: 640px;
+  width: 1600px;
+  max-width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+/* Overlay */
+.hero-overlay-Raymond {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Hero Title */
+.hero-title-Raymond {
+  margin-top: 200px;
+  padding-left: 200px;
+  font-size: 50px;
+  font-weight: 500;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+/* ================= RAYMOND SECTION ================= */
+.Raymond-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 100px;
+  gap: 60px;
+}
+
+.Raymond-text {
+  width: 120%;
+  margin-left: 15px;
+}
+
+.Raymond-text h1 {
+  margin-left: 20px;
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.Raymond-text h5,
+.Raymond-text h6 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.Raymond-image {
+  width: 100%;
+}
+
+.Raymond-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* ================= RAYMOND SECTION LAYOUT ================= */
+.Raymondclub-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1300px;
+  margin: 80px auto;
+  padding: 0 5%;
+}
+
+/* Text Wrapper */
+.Raymondclub-text {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+}
+
+.Raymondclub-text h1 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  color: #444;
+  margin-bottom: 25px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Paragraph Content Box - Cleaning up inner class */
+.Raymondclub-text .paragraph-contect {
+  width: 100%;
+  margin: 0;
+  text-align: left;
+}
+
+.Raymondclub-text .h5 {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-align: justify;
+}
+
+.Raymondclub-text .h6 {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 15px;
+  font-weight: 400;
+  text-align: justify;
+}
+
+/* Image Wrapper */
+.Raymondclub-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.Raymondclub-image img {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* ================= TABLET & MOBILE FIX ================= */
+
+@media (max-width: 1024px) {
+  .Raymondclub-section {
+    flex-direction: column !important; /* Stack vertically */
+    text-align: center;
+    gap: 40px;
+    padding: 50px 20px;
+  }
+
+  /* Image Top par laane ke liye */
+  .Raymondclub-image {
+    order: 1; 
+    width: 100%;
+  }
+
+  .Raymondclub-text {
+    order: 2;
+    width: 100%;
+  }
+
+  .Raymondclub-text h1 {
+    text-align: center;
+  }
+
+  .Raymondclub-text .h5, 
+  .Raymondclub-text .h6 {
+    text-align: center; /* Mobile pe justified text aacha nahi lagta */
+  }
+}
+
+@media (max-width: 480px) {
+  .Raymondclub-text h1 {
+    font-size: 24px;
+  }
+  
+  .Raymondclub-text .h5 {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+/* ================= SCROLL ANIMATION ================= */
+.scroll-hide {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+.scroll-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= SLIDER ================= */
+.hero-container2 {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-slider {
+  display: flex;
+  height: 100%;
+  transition: transform 5s ease-in-out;
+}
+
+.hero-image {
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  max-height: 85%;
+  object-fit: contain;
+}
+
+
+
+/* ================= VALUES ================= */
+.about-values {
+  background: #f8f8f8;
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.about-values h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.values-cards {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.value-card {
+  width: 280px;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+
+  .hero-section-Raymond {
+    height: 420px;
+  }
+
+  .hero-title-Raymond {
+    margin-top: 0;
+    padding-left: 0;
+    font-size: 36px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .Raymond-section,
+  .Raymondclub-section {
+    flex-direction: column;
+    padding: 50px 30px;
+    text-align: center;
+  }
+
+  .Raymond-text,
+  .paragraph-contect {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .Raymondclub-image {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .Raymondclub-image img {
+    width: 100%;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  .hero-section-Raymond {
+    height: 360px;
+  }
+
+  .hero-title-Raymond {
+    font-size: 28px;
+    padding: 0 20px;
+  }
+
+  .Raymond-text h1,
+  .Raymondclub-text h1 {
+    font-size: 30px;
+  }
+
+  .container2-h5,
+  .container2-h6,
+  .Raymond-text h5,
+  .Raymond-text h6 {
+    font-size: 1rem;
+  }
+
+  .hero-container2 {
+    height: auto;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+@media (max-width: 480px) {
+
+  .hero-section-Raymond {
+    height: 300px;
+  }
+
+  .hero-title-Raymond {
+    font-size: 22px;
+  }
+
+
+  .value-card {
+    width: 100%;
+  }
+}

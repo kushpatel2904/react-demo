@@ -1,0 +1,286 @@
+/* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+}
+
+/* ================= HERO SECTION ================= */
+.hero-section-siyaram {
+  position: relative;
+  height: 600px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Hero Title */
+.hero-title-siyaram {
+  margin-top: 300px;
+  padding-left: 300px;
+  font-size: 69px;
+  font-weight: 500;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+/* ================= PARAGRAPH ================= */
+.paragraph-contect {
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.content {
+  font-size: 39px;
+  text-align: center;
+}
+
+
+.image-text-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-left: 150px;
+  margin-top: 40px;
+}
+
+.container-image img {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.h1 {
+  font-size: 48px;
+  font-weight: 100;
+  margin: 20px;
+  color: #000;
+  text-align: left;
+}
+
+.h5,
+.h6 {
+  margin: 10px;
+  font-size: 20px;
+  font-weight: 100;
+  color: #000;
+  width: 70%;
+  text-align: left;
+}
+/* ================= IMAGE-TEXT FLEX SECTIONS ================= */
+.image-text-container,
+.suiting-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; /* Center container */
+  margin: 40px auto; /* auto se apne aap center ho jayega, margin-left ki zaroorat nahi */
+  padding: 0 40px;
+  gap: 40px;
+}
+
+.shirting-text,
+.suiting-text,
+.shirting-text h1,
+.suiting-text h1 {
+  width: 100%; /* 120% ya fixed pixel margin hataya */
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  font-size: 46px;
+  margin-bottom: 25px;
+  color: #444;
+}
+
+.h5, .h6, 
+.shirting-text h5, .shirting-text h6,
+.suiting-text h5, .suiting-text h6 {
+  width: 100%; /* Content ko container ke andar rakhne ke liye */
+  margin-left: 0;
+}
+
+.container-image, .suiting-image {
+  flex: 1;
+  width: 100%; /* Parent width ke andar */
+}
+
+.container-image img, .suiting-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ================= SLIDER FIX ================= */
+.hero-container2 {
+  width: 100vw;
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%; /* 120% hataya, isse hi scroll aa raha tha */
+  max-height: 85%;
+  object-fit: contain;
+}
+
+/* ================= SCROLL ANIMATION ================= */
+.scroll-hide {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+.scroll-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= SLIDER ================= */
+.hero-container2 {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-slider {
+  display: flex;
+  height: 100%;
+  transition: transform 1s ease-in-out;
+}
+
+.hero-image {
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-height: 85%;
+  object-fit: contain;
+}
+
+
+/* ================= VALUES ================= */
+.about-values {
+  background: #f8f8f8;
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.values-cards {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.value-card {
+  width: 280px;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+
+  .hero-section-siyaram {
+    height: 420px;
+  }
+
+  .hero-title-siyaram {
+    margin-top: 0;
+    padding-left: 0;
+    font-size: 42px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .image-text-container,
+  .suiting-section {
+    flex-direction: column;
+    margin-left: 0;
+    padding: 40px 30px;
+    text-align: center;
+  }
+
+  .h5,
+  .h6 {
+    width: 100%;
+    margin: 0 auto 15px;
+    text-align: center;
+  }
+
+  .shirting-text,
+  .suiting-text {
+
+    width: 100%;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  .hero-section-siyaram {
+    height: 360px;
+  }
+
+  .hero-title-siyaram {
+    font-size: 30px;
+    padding: 0 20px;
+  }
+
+  .content {
+    font-size: 22px;
+  }
+
+  .h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .hero-container2 {
+    height: auto;
+  }
+
+  .hero-image img {
+    width: 100%;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+@media (max-width: 480px) {
+
+  .hero-section-siyaram {
+    height: 300px;
+  }
+
+  .hero-title-siyaram {
+    font-size: 22px;
+  }
+  
+  .value-card {
+    width: 100%;
+  }
+}
+
