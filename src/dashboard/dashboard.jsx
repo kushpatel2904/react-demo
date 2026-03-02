@@ -1500,7 +1500,7 @@ export default function Dashboard() {
                         {
                           label: "Order Value (₹)",
                           data: orders.map((o) => o.grandTotal),
-                          backgroundColor: "rgba(197, 160, 89, 0.8)", // Rivaaj Gold Color
+                          backgroundColor: "rgba(197, 160, 89, 0.8)", 
                           hoverBackgroundColor: "#c5a059",
                           borderRadius: 6,
                         },

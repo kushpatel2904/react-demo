@@ -259,9 +259,9 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
   /* Light dark overlay */
-  backdrop-filter: blur(15px);
-  /* Premium blur effect */
   -webkit-backdrop-filter: blur(15px);
+  /* Premium blur effect */
+  backdrop-filter: blur(15px);
   /* Safari support */
   z-index: 4000;
   /* Modal se niche, content se upar */
@@ -412,6 +412,8 @@
 /* --- MOBILE & TABLET ADJUSTMENTS FOR BLUR --- */
 @media (max-width: 1024px) {
   .boutique-wrapper.is-focus::before {
+    -webkit-backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     /* Mobile par thoda kam blur performance ke liye */
   }
@@ -686,3 +688,5 @@
     letter-spacing: 2px;
   }
 }
+
+

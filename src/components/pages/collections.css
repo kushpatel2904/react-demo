@@ -28,6 +28,7 @@
 /* --- Sidebar Styling --- */
 .sidebar-1 {
   flex: 0 0 280px;
+  position: -webkit-sticky;
   position: sticky;
   top: 40px;
   height: fit-content;
