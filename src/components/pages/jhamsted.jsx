@@ -90,6 +90,8 @@ export default function JHamsted() {
     fetchAllData();
   }, []);
 
+
+
   /* ================= AUTO SLIDER ================= */
   useEffect(() => {
     if (sliderImages.length === 0) return;
@@ -120,6 +122,17 @@ export default function JHamsted() {
 
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+
+    
+  if (loading) {
+    return (
+      <div className="loader-wrapper">
+        <div className="fabric-loader"></div>
+        <p>Loading....</p>
+      </div>
+    );
+  }
 
   return (
     <>

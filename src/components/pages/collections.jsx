@@ -77,6 +77,15 @@ export default function Filters() {
         selectedBrands.includes(item.brand)
       );
 
+  if (loading) {
+    return (
+      <div className="loader-wrapper">
+        <div className="fabric-loader"></div>
+        <p>Loading....</p>
+      </div>
+    );
+  }
+  
   return (
     <div className="collections1-wrapper">
       {loading ? (

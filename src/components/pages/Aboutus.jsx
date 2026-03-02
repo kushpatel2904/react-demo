@@ -51,7 +51,14 @@ export default function Aboutus() {
     fetchAllData();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) {
+    return (
+      <div className="loader-wrapper">
+        <div className="fabric-loader"></div>
+        <p>Loading....</p>
+      </div>
+    );
+  }
 
   return (
     <>

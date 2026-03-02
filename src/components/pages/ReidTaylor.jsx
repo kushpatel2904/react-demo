@@ -104,6 +104,16 @@ useEffect(() => {
     return () => clearInterval(interval);
   }, [sliderImages]);
 
+    
+  if (loading) {
+    return (
+      <div className="loader-wrapper">
+        <div className="fabric-loader"></div>
+        <p>Loading....</p>
+      </div>
+    );
+  }
+
   return (
     <>
  {/* BACK TO TOP BUTTON */}

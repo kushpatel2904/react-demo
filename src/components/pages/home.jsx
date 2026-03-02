@@ -11,6 +11,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true); 
   const [showTopBtn, setShowTopBtn] = useState(false);
 
+
   /* 🚀 2. SCROLL EFFECTS (Intersection Observer & Back to Top) */
   useEffect(() => {
     // Intersection Observer for scroll reveal
@@ -80,8 +81,9 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
-        <p>Loading Rivaaj Experience...</p>
+      <div className="loader-wrapper">
+        <div className="fabric-loader"></div>
+        <p>Loading....</p>
       </div>
     );
   }
