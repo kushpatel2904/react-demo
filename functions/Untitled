@@ -1,0 +1,40 @@
+const functions = require("firebase-functions");
+const admin = require("firebase-admin");
+const cloudinary = require("cloudinary").v2;
+
+admin.initializeApp();
+
+cloudinary.config({
+  cloud_name: functions.config().cloudinary.cloud_name,
+  api_key: functions.config().cloudinary.api_key,
+  api_secret: functions.config().cloudinary.api_secret,
+});
+
+exports.uploadImages = functions.https.onRequest(async (req, res) => {
+  try {
+    const images = req.body.images; // base64 array
+
+    const uploadedImages = [];
+
+    for (let img of images) {
+      const result = await cloudinary.uploader.upload(img, {
+        folder: "dashboard_uploads",
+      });
+
+      const docRef = await admin.firestore().collection("dashboardImages").add({
+        imageUrl: result.secure_url,
+        publicId: result.public_id,
+        createdAt: admin.firestore.FieldValue.serverTimestamp(),
+      });
+
+      uploadedImages.push({
+        id: docRef.id,
+        url: result.secure_url,
+      });
+    }
+
+    res.status(200).send(uploadedImages);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
