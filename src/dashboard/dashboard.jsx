@@ -90,12 +90,12 @@ export default function Dashboard() {
   
       switch (imageType) {
         case "hero":
-          collectionName = "about";
-          payload.section = "right-2";  // 👈 ADD THIS
+          collectionName = "storesection";
+          payload.section = "hero";  // 👈 ADD THIS
           break;
   
         case "slider":
-          collectionName = "why";
+          collectionName = "homeImages";
           payload.order = Number(imageOrder);
           break;
   

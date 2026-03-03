@@ -1,31 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs , query , orderBy} from "firebase/firestore";
 import "./shower.css";
 
 export default function Collections() {
   const [collections, setCollections] = useState([]);
   const [active, setActive] = useState(null);
 
-  // 🔹 Fetch data from Firebase
-  useEffect(() => {
-    const fetchCollections = async () => {
-      try {
-        const snapshot = await getDocs(collection(db, "collections"));
-        const data = snapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
+ // 🔹 Fetch data from Firebase (Ordered)
+useEffect(() => {
+  const fetchCollections = async () => {
+    try {
+      const q = query(
+        collection(db, "collections"),
+        orderBy("order", "asc")   // 👈 yaha se order control hoga
+      );
 
-        setCollections(data);
-        if (data.length > 0) setActive(data[0]);
-      } catch (err) {
-        console.error("Firebase Error:", err);
+      const snapshot = await getDocs(q);
+
+      const data = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+
+      setCollections(data);
+
+      if (data.length > 0) {
+        setActive(data[0]);
       }
-    };
 
-    fetchCollections();
-  }, []);
+    } catch (err) {
+      console.error("Firebase Error:", err);
+    }
+  };
+
+  fetchCollections();
+}, []);
 
   // 🔹 Scroll animation
   useEffect(() => {

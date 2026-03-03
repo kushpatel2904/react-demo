@@ -40,12 +40,22 @@ export default function Aboutus() {
           whySnap.docs.map(d => d.data().image).filter(Boolean)
         );
 
-        // 🔥 Craft fetch with order
-        const craftQuery = query(collection(db, "craft"), orderBy("order", "asc"));
-        const craftSnap = await getDocs(craftQuery);
-        setCraftImages(
-          craftSnap.docs.map(d => d.data().image).filter(Boolean)
+        const craftQuery = query(
+          collection(db, "craft"),
+          orderBy("order", "asc")
         );
+        
+        const craftSnap = await getDocs(craftQuery);
+        
+        const sortedCraft = craftSnap.docs.map(doc => {
+          console.log("Craft Doc:", doc.data()); // 🔥 DEBUG
+          return {
+            id: doc.id,
+            ...doc.data()
+          };
+        });
+        
+        setCraftImages(sortedCraft);
 
       } catch (err) {
         console.error("Firestore fetch error:", err);
@@ -176,27 +186,38 @@ export default function Aboutus() {
         </div>
       )}
 
-      {/* TEAM SECTION */}
-      <section className="team-section scroll-hide">
+    {/* TEAM SECTION */}
+    <section className="team-section scroll-hide">
         <div className="team-header">
           <span className="team-subtitle">Our Team</span>
           <h1 className="team-title">Meet our Team</h1>
         </div>
 
         <div className="team-grid">
-          {craftImages.slice(0, 4).map((img, index) => (
-            <div
-              className="team-card"
-              key={index}
-              onClick={() => setSelectedMember({ ...teamData[index], img })}
-            >
-              <div className="img-container">
-                <img src={img} alt={teamData[index].name} />
-              </div>
-              <h3>{teamData[index].name}</h3>
-              <p>{teamData[index].role}</p>
-            </div>
-          ))}
+          {craftImages.length > 0 ? (
+            craftImages.slice(0, teamData.length).map((item, index) => {
+              const member = teamData[index];
+              if (!member) return null;
+
+              return (
+                <div
+                  className="team-card"
+                  key={item.id}   // ✅ stable key (NOT index)
+                  onClick={() => setSelectedMember({ ...member, img: item.image })}
+                >
+                  <div className="img-container">
+                    <img src={item.image} alt={member.name} />
+                  </div>
+                  <h3>{member.name}</h3>
+                  <p>{member.role}</p>
+                </div>
+              );
+            })
+          ) : (
+            <p style={{ textAlign: "center", width: "100%" }}>
+              No team images available
+            </p>
+          )}
         </div>
       </section>
 

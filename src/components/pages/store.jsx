@@ -9,7 +9,7 @@ export default function StoreLocator() {
   useEffect(() => {
     const fetchHeroData = async () => {
       try {
-        const docRef = doc(db, "storesection", "1"); // document ID
+        const docRef = doc(db, "storesection", "HgTJ0ZlGDbGltrRzsP66"); // document ID
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
