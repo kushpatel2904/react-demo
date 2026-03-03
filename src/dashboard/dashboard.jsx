@@ -90,18 +90,18 @@ export default function Dashboard() {
   
       switch (imageType) {
         case "hero":
-          collectionName = "reidtaylorhero";
-          payload.type = "hero";
+          collectionName = "about";
+          payload.section = "right-2";  // 👈 ADD THIS
           break;
   
         case "slider":
-          collectionName = "ReidTaylorsection";
+          collectionName = "why";
           payload.order = Number(imageOrder);
           break;
   
         case "suiting":
         case "shirting":
-          collectionName = "shirtingImg";
+          collectionName = "craft";
           payload.type = imageType;
           break;
   

@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { db } from "../../firebase";
 import CollectionShower from "./shower";
 import "./Aboutus.css";
 
 export default function Aboutus() {
-  const [aboutImages, setAboutImages] = useState([]);
+  const [aboutImages, setAboutImages] = useState({});
   const [whyImages, setWhyImages] = useState([]);
   const [craftImages, setCraftImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isExploring, setIsExploring] = useState(false);
-  const [selectedMember, setSelectedMember] = useState(null); // New State
+  const [selectedMember, setSelectedMember] = useState(null);
 
   const teamData = [
     { name: "DHARMESH PATEL", role: "OWNER", bio: "With over 20 years of experience in the textile industry, Dharmesh leads Rivaaj with a vision for perfection." },
@@ -19,24 +19,30 @@ export default function Aboutus() {
     { name: "MAYUR KOKRA", role: "STAFF", bio: "Mayur is the backbone of our operations, ensuring customer satisfaction and quality control." }
   ];
 
-
   useEffect(() => {
     const fetchAllData = async () => {
       try {
-        const [aboutSnap, whySnap, craftSnap] = await Promise.all([
-          getDocs(collection(db, "about")),
-          getDocs(collection(db, "why")),
-          getDocs(collection(db, "craft")),
-        ]);
+        // 🔥 About fetch
+        const aboutSnap = await getDocs(collection(db, "about"));
+        const aboutData = {};
+        aboutSnap.forEach(doc => {
+          const data = doc.data();
+          if (data.section) {
+            aboutData[data.section] = data.image;
+          }
+        });
+        setAboutImages(aboutData);
 
-        setAboutImages(
-          aboutSnap.docs.map(d => d.data().image).filter(Boolean)
-        );
-
+        // 🔥 Why fetch with order
+        const whyQuery = query(collection(db, "why"), orderBy("order", "asc"));
+        const whySnap = await getDocs(whyQuery);
         setWhyImages(
           whySnap.docs.map(d => d.data().image).filter(Boolean)
         );
 
+        // 🔥 Craft fetch with order
+        const craftQuery = query(collection(db, "craft"), orderBy("order", "asc"));
+        const craftSnap = await getDocs(craftQuery);
         setCraftImages(
           craftSnap.docs.map(d => d.data().image).filter(Boolean)
         );
@@ -66,17 +72,17 @@ export default function Aboutus() {
       <div className="about-wrapper scroll-hide">
         <div className="about-card">
           <div className="about-images">
-            {aboutImages[0] && (
+            {aboutImages["hero-main"] && (
               <img
-                src={aboutImages[0]}
+                src={aboutImages["hero-main"]}
                 className="img-main"
                 alt="Premium fabric showcase"
                 loading="lazy"
               />
             )}
-            {aboutImages[1] && (
+            {aboutImages["hero-overlay"] && (
               <img
-                src={aboutImages[1]}
+                src={aboutImages["hero-overlay"]}
                 className="img-overlay"
                 alt="Fabric texture close-up"
                 loading="lazy"
@@ -92,8 +98,7 @@ export default function Aboutus() {
               designs blend modern trends with timeless elegance.
             </p>
             <p>
-              Our mission is to bring confidence and class to every outfit you
-              wear.
+              Our mission is to bring confidence and class to every outfit you wear.
             </p>
             <button onClick={() => setIsExploring(true)}>Explore More</button>
           </div>
@@ -106,17 +111,17 @@ export default function Aboutus() {
 
         <div className="about-inner">
           <div className="about-left">
-            {aboutImages[2] && (
+            {aboutImages["art-large"] && (
               <img
-                src={aboutImages[2]}
+                src={aboutImages["art-large"]}
                 className="img img-large"
                 alt="Luxury fabric craftsmanship"
                 loading="lazy"
               />
             )}
-            {aboutImages[5] && (
+            {aboutImages["art-small"] && (
               <img
-                src={aboutImages[5]}
+                src={aboutImages["art-small"]}
                 className="img img-small"
                 alt="Detailed textile pattern"
                 loading="lazy"
@@ -136,19 +141,11 @@ export default function Aboutus() {
             </p>
 
             <div className="right-images">
-              {aboutImages[4] && (
-                <img
-                  src={aboutImages[4]}
-                  alt="Modern fabric design"
-                  loading="lazy"
-                />
+              {aboutImages["right-1"] && (
+                <img src={aboutImages["right-1"]} alt="Modern fabric design" loading="lazy" />
               )}
-              {aboutImages[3] && (
-                <img
-                  src={aboutImages[3]}
-                  alt="Classic fabric finish"
-                  loading="lazy"
-                />
+              {aboutImages["right-2"] && (
+                <img src={aboutImages["right-2"]} alt="Classic fabric finish" loading="lazy" />
               )}
             </div>
           </div>
@@ -165,18 +162,13 @@ export default function Aboutus() {
             <h2>Why Choose Us</h2>
 
             <p className="subtitle scroll-hide">
-              Formal fabrics are the silent architects of confidence, shaping every
-              moment with elegance and precision.
+              Formal fabrics are the silent architects of confidence.
             </p>
 
             <div className="card-grid">
               {whyImages.map((img, i) => (
                 <div className="why-card" key={i}>
-                  <img
-                    src={img}
-                    alt={`Reason ${i + 1} for choosing our fabrics`}
-                    loading="lazy"
-                  />
+                  <img src={img} alt={`Reason ${i + 1}`} loading="lazy" />
                 </div>
               ))}
             </div>
@@ -184,9 +176,7 @@ export default function Aboutus() {
         </div>
       )}
 
-      
-
-
+      {/* TEAM SECTION */}
       <section className="team-section scroll-hide">
         <div className="team-header">
           <span className="team-subtitle">Our Team</span>
@@ -198,11 +188,10 @@ export default function Aboutus() {
             <div
               className="team-card"
               key={index}
-              onClick={() => setSelectedMember({ ...teamData[index], img })} // Click event
+              onClick={() => setSelectedMember({ ...teamData[index], img })}
             >
               <div className="img-container">
                 <img src={img} alt={teamData[index].name} />
-
               </div>
               <h3>{teamData[index].name}</h3>
               <p>{teamData[index].role}</p>
@@ -211,66 +200,49 @@ export default function Aboutus() {
         </div>
       </section>
 
-     {/* LUXURY DETAIL OVERLAY */}
-{selectedMember && (
-  <div className="member-detail-overlay">
-    <div className="overlay-bg" onClick={() => setSelectedMember(null)}></div>
-    <div className="detail-content">
-    
-      <div className="detail-grid">
-        <div className="detail-img-side">
-          <img src={selectedMember.img} alt={selectedMember.name} />
-        </div>
-        <div className="detail-info-side">
-          <span className="gold-tag">RIVAAJ ELITE</span>
-          <h2>{selectedMember.name}</h2>
-          <h4 className="role-text">{selectedMember.role}</h4>
-          <div className="divider"></div>
-          <p className="bio-text">{selectedMember.bio}</p>
-
-          {/* REPLACED SOCIAL LINKS WITH BACK BUTTON */}
-          <div className="back-navigation">
-            <button 
-              className="back-to-site-btn" 
-              onClick={() => setSelectedMember(null)}
-            >
-              BACK 
-            </button>
+      {/* OVERLAY */}
+      {selectedMember && (
+        <div className="member-detail-overlay">
+          <div className="overlay-bg" onClick={() => setSelectedMember(null)}></div>
+          <div className="detail-content">
+            <div className="detail-grid">
+              <div className="detail-img-side">
+                <img src={selectedMember.img} alt={selectedMember.name} />
+              </div>
+              <div className="detail-info-side">
+                <span className="gold-tag">RIVAAJ ELITE</span>
+                <h2>{selectedMember.name}</h2>
+                <h4 className="role-text">{selectedMember.role}</h4>
+                <div className="divider"></div>
+                <p className="bio-text">{selectedMember.bio}</p>
+                <div className="back-navigation">
+                  <button className="back-to-site-btn" onClick={() => setSelectedMember(null)}>
+                    BACK
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-)}
+      )}
 
-
-
-      <div className="paragraph-contect scroll-hide">
-        <p className="content1">
-          Passion in Every Thread
-        </p>
-      </div>
       <CollectionShower />
 
+      {/* Explore Overlay */}
       {isExploring && (
         <div className="luxury-overlay">
           <div className="overlay-close" onClick={() => setIsExploring(false)}>CLOSE ✕</div>
-
           <div className="overlay-grid">
             <div className="overlay-text-side">
               <span className="gold-text">SINCE 2010</span>
               <h2>The Soul of Rivaaj</h2>
-              <p>Every thread tells a story. We don’t just craft fabric , we weave an emotion that defines your personality.</p>
-
-              <div className="feature-list">
-                <div className="f-item"><strong>01.</strong> Hand-Picked Fibers</div>
-                <div className="f-item"><strong>02.</strong> Precision Weaving</div>
-                <div className="f-item"><strong>03.</strong> Eco-Friendly Dyes</div>
-              </div>
+              <p>Every thread tells a story.</p>
             </div>
 
             <div className="overlay-image-side">
-              {aboutImages[4] && <img src={aboutImages[4]} alt="Process" />}
+              {aboutImages["process"] && (
+                <img src={aboutImages["process"]} alt="Process" />
+              )}
               <div className="image-caption">Crafted in our Surat Atelier</div>
             </div>
           </div>
