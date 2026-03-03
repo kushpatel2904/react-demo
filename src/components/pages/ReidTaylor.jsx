@@ -60,7 +60,7 @@ useEffect(() => {
         // Firestore collections fetch promises
         const heroPromise = getDocs(collection(db, "reidtaylorhero"));
         const sliderPromise = getDocs(query(collection(db, "reidTaylorImages"), orderBy("order", "asc")));
-        const sectionsPromise = getDocs(query(collection(db, "shirtingImg"), orderBy("order", "asc")));
+        const sectionsPromise = getDocs(collection(db, "shirtingImg"));
 
         // Promise.all to fetch all simultaneously
         const [heroSnap, sliderSnap, sectionsSnap] = await Promise.all([heroPromise, sliderPromise, sectionsPromise]);

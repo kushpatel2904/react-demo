@@ -2761,4 +2761,85 @@ transition:  color 0.3s ease;
     margin-bottom: 20px;
   }
 }
+/* 🔥 Main Container */
+.images-container {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin: 20px;
+}
 
+/* Title */
+.images-container h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Upload Box */
+.image-upload-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+}
+
+/* Select Dropdown */
+.image-upload-box select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.image-upload-box select:focus {
+  border-color: #007bff;
+}
+
+/* Number Input */
+.image-upload-box input[type="number"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.image-upload-box input[type="number"]:focus {
+  border-color: #007bff;
+}
+
+/* File Input */
+.image-upload-box input[type="file"] {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px dashed #aaa;
+  background: #f9f9f9;
+  cursor: pointer;
+}
+
+/* Upload Button */
+.submit-btn {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #0056b3, #004494);
+}
+
+.submit-btn:disabled {
+  background: #999;
+  cursor: not-allowed;
+}

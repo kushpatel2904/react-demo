@@ -34,6 +34,105 @@ export default function Dashboard() {
   const [searchUser, setSearchUser] = useState("");// 🔍 Search state
   const [showpassword, setshowtpassword] = useState(false);  //password ne hide & show karva mate 
   const [loading, setLoading] = useState(true);
+  const [imageFile, setImageFile] = useState(null);
+  const [imageType, setImageType] = useState("");
+  const [imageOrder, setImageOrder] = useState("");
+  const [uploading, setUploading] = useState(false);
+
+  const handleImageUpload = async () => {
+    if (!imageFile) {
+      toast.error("Please select an image ❌");
+      return;
+    }
+  
+    if (!imageType) {
+      toast.error("Please select image type ❌");
+      return;
+    }
+  
+    if (imageType === "slider" && !imageOrder) {
+      toast.error("Please enter image order for slider ❌");
+      return;
+    }
+  
+    try {
+      setUploading(true);
+  
+      // 🔥 1️⃣ Upload to Cloudinary
+      const formData = new FormData();
+      formData.append("file", imageFile);
+      formData.append("upload_preset", "kvooief1");
+  
+      const cloudName = "dzde5sqph";
+  
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+  
+      const data = await response.json();
+  
+      if (!data.secure_url) {
+        throw new Error("Cloudinary upload failed");
+      }
+  
+      const imageUrl = data.secure_url;
+  
+      // 🔥 2️⃣ Decide Firestore Collection Dynamically
+      let collectionName = "";
+      let payload = {
+        image: imageUrl,
+        createdAt: new Date(),
+      };
+  
+      switch (imageType) {
+        case "hero":
+          collectionName = "reidtaylorhero";
+          payload.type = "hero";
+          break;
+  
+        case "slider":
+          collectionName = "ReidTaylorsection";
+          payload.order = Number(imageOrder);
+          break;
+  
+        case "suiting":
+        case "shirting":
+          collectionName = "shirtingImg";
+          payload.type = imageType;
+          break;
+  
+        default:
+          toast.error("Invalid image type ❌");
+          return;
+      }
+  
+      // 🔥 3️⃣ Save to Firestore
+      await addDoc(collection(db, collectionName), payload);
+  
+      toast.success("Image uploaded successfully ✅");
+  
+      // 🔥 Reset fields
+      setImageFile(null);
+      setImageOrder("");
+      setImageType("");
+  
+    } catch (error) {
+      console.error("Upload Error:", error);
+      toast.error("Image upload failed ❌");
+    } finally {
+      setUploading(false);
+    }
+  };
+
+
+
+
+
+
 
   const toggelepasswordvisibility = () => {
     setshowtpassword(!showpassword);
@@ -523,8 +622,6 @@ export default function Dashboard() {
   };
 
   
-
-
   if (loading) {
     return (
       <div className="loader-wrapper">
@@ -623,6 +720,7 @@ export default function Dashboard() {
             <li onClick={() => setActiveView("users")} >Customer</li>
             <li onClick={() => setActiveView("orders")}>Orders</li>
             <li onClick={() => setActiveView("sales")}>Sales</li>
+            <li onClick={() => setActiveView("images")}>Images</li>
           </ul>
         </nav>
         <button className="logout-btn" onClick={() => {
@@ -1549,6 +1647,52 @@ export default function Dashboard() {
             )}
           </div>
         )}
+
+
+{activeView === "images" && (
+  <div className="images-container">
+    <h2>Upload Siyaram Page Images</h2>
+
+    <div className="image-upload-box">
+
+      {/* 🔥 Image Type Select */}
+      <select
+        value={imageType}
+        onChange={(e) => setImageType(e.target.value)}
+      >
+        <option value="">Select Image Type</option>
+        <option value="hero">Hero Image</option>
+        <option value="slider">Slider Image</option>
+        <option value="suiting">Suiting Image</option>
+        <option value="shirting">Shirting Image</option>
+      </select>
+
+      {/* 🔥 Order input only for slider */}
+      {imageType === "slider" && (
+        <input
+          type="number"
+          placeholder="Enter Image Order"
+          value={imageOrder}
+          onChange={(e) => setImageOrder(e.target.value)}
+        />
+      )}
+
+      <input
+        type="file"
+        accept="image/*"
+        onChange={(e) => setImageFile(e.target.files[0])}
+      />
+
+      <button
+        className="submit-btn"
+        onClick={handleImageUpload}
+        disabled={uploading}
+      >
+        {uploading ? "Uploading..." : "Upload Image"}
+      </button>
+    </div>
+  </div>
+)}
 
 
         {whatsAppModal && (
