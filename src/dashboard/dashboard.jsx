@@ -38,6 +38,9 @@ export default function Dashboard() {
   const [imageType, setImageType] = useState("");
   const [imageOrder, setImageOrder] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [title, setTitle] = useState("");
+const [brand, setBrand] = useState("");
+const [category, setCategory] = useState("");
 
   const handleImageUpload = async () => {
     if (!imageFile) {
@@ -90,20 +93,23 @@ export default function Dashboard() {
   
       switch (imageType) {
         case "hero":
-          collectionName = "storesection";
-          payload.section = "hero";  // 👈 ADD THIS
+          collectionName = "about";
+          payload.section = "process";  // 👈 ADD THIS
           break;
   
         case "slider":
-          collectionName = "homeImages";
+          collectionName = "workImages";
           payload.order = Number(imageOrder);
           break;
   
-        case "suiting":
-        case "shirting":
-          collectionName = "craft";
-          payload.type = imageType;
-          break;
+          case "suiting":
+            case "shirting":
+              collectionName = "products";
+              payload.type = imageType;
+              payload.title = title;
+              payload.brand = brand;
+              payload.category = category;
+              break;
   
         default:
           toast.error("Invalid image type ❌");
@@ -119,6 +125,9 @@ export default function Dashboard() {
       setImageFile(null);
       setImageOrder("");
       setImageType("");
+      setTitle("");
+setBrand("");
+setCategory("");
   
     } catch (error) {
       console.error("Upload Error:", error);
@@ -1648,7 +1657,6 @@ export default function Dashboard() {
           </div>
         )}
 
-
 {activeView === "images" && (
   <div className="images-container">
     <h2>Upload Siyaram Page Images</h2>
@@ -1667,6 +1675,25 @@ export default function Dashboard() {
         <option value="shirting">Shirting Image</option>
       </select>
 
+      {/* 🔥 Title + Brand only for Suiting / Shirting */}
+      {(imageType === "suiting" || imageType === "shirting") && (
+        <>
+          <input
+            type="text"
+            placeholder="Enter Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+
+          <input
+            type="text"
+            placeholder="Enter Brand"
+            value={brand}
+            onChange={(e) => setBrand(e.target.value)}
+          />
+        </>
+      )}
+
       {/* 🔥 Order input only for slider */}
       {imageType === "slider" && (
         <input
@@ -1677,6 +1704,7 @@ export default function Dashboard() {
         />
       )}
 
+      {/* Image Upload */}
       <input
         type="file"
         accept="image/*"
@@ -1690,10 +1718,10 @@ export default function Dashboard() {
       >
         {uploading ? "Uploading..." : "Upload Image"}
       </button>
+
     </div>
   </div>
 )}
-
 
         {whatsAppModal && (
           <div className="modal-overlay">

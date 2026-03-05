@@ -10,38 +10,23 @@ export default function Filters() {
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const collectionNames = Array.from(
-          { length: 66 },
-          (_, i) => (i + 1).toString()
-        );
 
-        const promises = collectionNames.map((name) =>
-          getDocs(collection(db, name))
-        );
+        // 🔥 Only ONE collection
+        const snapshot = await getDocs(collection(db, "products"));
 
-        const snapshots = await Promise.all(promises);
+        const docs = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
 
-        let allData = [];
-
-        snapshots.forEach((snapshot, index) => {
-          const name = collectionNames[index];
-
-          const docs = snapshot.docs.map((doc) => ({
-            id: `${name}_${doc.id}`,
-            ...doc.data(),
-          }));
-
-          allData = [...allData, ...docs];
-        });
-
-        setData(allData);
+        setData(docs);
         setLoading(false);
+
       } catch (err) {
-        console.log("Error aavyo:", err);
+        console.log("Firebase error:", err);
         setLoading(false);
       }
     };
@@ -49,6 +34,7 @@ export default function Filters() {
     fetchData();
   }, []);
 
+  
   // ✅ Unique brands
   const brands = [
     ...new Set(
@@ -68,6 +54,11 @@ export default function Filters() {
       setSelectedBrands([...selectedBrands, brand]);
     }
   };
+
+    /* Clear Filters */
+    const clearFilters = () => {
+      setSelectedBrands([]);
+    };
 
   // ✅ Filter logic (multi select)
   const filteredData =
@@ -97,6 +88,14 @@ export default function Filters() {
           <div className="sidebar-1">
             <h3>Categories</h3>
 
+            {selectedBrands.length > 0 && (
+              <button
+                className="clear-filter-btn"
+                onClick={clearFilters}
+              >
+              </button>
+            )}
+
             <div className="filter-group">
               {brands.map((brand, idx) => (
                 <label key={idx} className="checkbox-label">
@@ -108,6 +107,7 @@ export default function Filters() {
                   />
                   {brand}
                 </label>
+               
               ))}
             </div>
 

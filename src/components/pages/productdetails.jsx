@@ -9,31 +9,27 @@ export default function ProductDetails() {
   const [loading, setLoading] = useState(true);
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [activeProduct, setActiveProduct] = useState(null); // ✅ Overlay ke liye state
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const collectionNames = Array.from({ length: 66 }, (_, i) => (i + 1).toString());
-        const promises = collectionNames.map((name) => getDocs(collection(db, name)));
-        const snapshots = await Promise.all(promises);
 
-        let allData = [];
-        snapshots.forEach((snapshot, index) => {
-          const name = collectionNames[index];
-          const docs = snapshot.docs.map((doc) => ({
-            id: `${name}_${doc.id}`,
-            ...doc.data(),
-          }));
-          allData = [...allData, ...docs];
-        });
+        // 🔥 Only ONE collection
+        const snapshot = await getDocs(collection(db, "products"));
 
-        setData(allData);
+        const docs = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
+        setData(docs);
         setLoading(false);
+
       } catch (err) {
-        console.log("Error:", err);
+        console.log("Firebase error:", err);
         setLoading(false);
       }
     };
+
     fetchData();
   }, []);
 

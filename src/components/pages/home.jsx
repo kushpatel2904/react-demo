@@ -44,36 +44,50 @@ export default function Home() {
     };
   }, [loading]); // Elements load thay pachi observer trigger thase
 
-  /* 🔥 3. FETCH IMAGES FROM FIREBASE */
+ 
+  /* 🔥 FIREBASE DATA FETCH */
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const [homeSnap, heroSnap] = await Promise.all([
-          getDocs(collection(db, "homeImages")), 
-          getDocs(collection(db, "hero")), 
+        const [whySnap, workSnap, heroSnap] = await Promise.all([
+          getDocs(collection(db, "why")),
+          getDocs(collection(db, "workImages")),
+          getDocs(collection(db, "hero")),
         ]);
 
-        const homeData = homeSnap.docs.map(doc => ({
+        /* WHY IMAGES */
+        const whyData = whySnap.docs.map(doc => ({
           id: doc.id,
           ...doc.data(),
         }));
 
+        /* WORK IMAGES */
+        const workData = workSnap.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
+
+        /* HERO IMAGE */
         const heroData = heroSnap.docs
           .map(doc => doc.data())
-          .find(item => item.type === "hero");
+          .find(item => item.section === "hero");
 
-        setHero(heroData?.image || ""); 
-        setWhyImages(homeData.filter(item => item.type === "why" && item.image)); 
-        setWorkImages(homeData.filter(item => item.type === "works" && item.image)); 
-      } catch (error) {
+        setHero(heroData?.image || "");
+        setWhyImages(whyData);
+        // 🔥 workImages collection me sirf works images hai
+        setWorkImages(workData);
+      }
+      catch (error) {
         console.error("Firebase fetch error:", error);
-      } finally {
-        setLoading(false); 
+      }
+      finally {
+        setLoading(false);
       }
     };
-
     fetchImages();
   }, []);
+
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -160,24 +174,26 @@ export default function Home() {
         </div>
 
         <div className="slider-container">
-          <div className="slider-track">
-            {[...workImages, ...workImages].map((item, index) => (
-              <div className="slide" key={index}>
-                <div className="slide-inner">
-                  <img
-                    src={item.image}
-                    alt={`Work ${index}`}
-                    className="work-img-slider"
-                    loading="lazy"
-                  />
-                  <div className="slide-overlay">
-                    <span>RIVAAJ EXCLUSIVE</span>
-                  </div>
-                </div>
-              </div>
-            ))}
+  <div className="slider-track">
+
+    {[...workImages, ...workImages, ...workImages].map((item, index) => (
+      <div className="slide" key={index}>
+        <div className="slide-inner">
+          <img
+            src={item.image}
+            alt={`Work ${index}`}
+            className="work-img-slider"
+          />
+
+          <div className="slide-overlay">
+            <span>RIVAAJ EXCLUSIVE</span>
           </div>
         </div>
+      </div>
+    ))}
+
+  </div>
+</div>
       </section>
     </>
   );

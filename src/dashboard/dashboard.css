@@ -2815,12 +2815,31 @@ transition:  color 0.3s ease;
 }
 
 /* File Input */
-.image-upload-box input[type="file"] {
+.image-upload-box input[type="file" ] {
   padding: 8px;
   border-radius: 8px;
   border: 1px dashed #aaa;
   background: #f9f9f9;
   cursor: pointer;
+}
+
+/* Title + Brand Inputs Wrapper */
+.image-upload-box input[type="text"] {
+  width: 100%;
+  padding: 10px 14px;
+  margin-top: 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+/* Focus Effect */
+.image-upload-box input[type="text"]:focus {
+  border-color: #c79a5a;
+  box-shadow: 0 0 0 2px rgba(199, 154, 90, 0.15);
 }
 
 /* Upload Button */
@@ -2843,3 +2862,4 @@ transition:  color 0.3s ease;
   background: #999;
   cursor: not-allowed;
 }
+

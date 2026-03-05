@@ -48,7 +48,7 @@ export default function Aboutus() {
         const craftSnap = await getDocs(craftQuery);
         
         const sortedCraft = craftSnap.docs.map(doc => {
-          console.log("Craft Doc:", doc.data()); // 🔥 DEBUG
+          console.log("Craft Doc:", doc.data()); // 
           return {
             id: doc.id,
             ...doc.data()

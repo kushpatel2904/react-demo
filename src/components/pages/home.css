@@ -11,7 +11,7 @@ body {
 /* ========== HERO SECTION ========== */
 .hero-section {
   position: relative;
-  height: 80vh;
+  height: 85vh;
   /* screen ka 80% */
   width: 100%;
   display: flex;
@@ -400,6 +400,7 @@ body {
   margin: 0;
 }
 
+
 /* --- SLIDER CORE --- */
 .slider-container {
   width: 100%;
@@ -429,26 +430,20 @@ body {
   right: 0;
 
 }
-
-/* ANIMATION TRACK */
 .slider-track {
   display: flex;
-  width: calc(350px * 20);
-  /* Adjust based on image count */
-  animation: scrollInfinite 40s linear infinite;
+  width: max-content;
+  animation: scrollInfinite 20s linear infinite;
 }
 
-/*auto slide */
 @keyframes scrollInfinite {
   0% {
     transform: translateX(0);
   }
 
   100% {
-    transform: translateX(calc(-350px * 10));
+    transform: translateX(-33.33%);
   }
-
-  /* Half of total width */
 }
 
 /* Pause on hover to let user admire the work */
@@ -461,6 +456,7 @@ body {
   width: 350px;
   padding: 0 15px;
   perspective: 1000px;
+  flex: 0 0 350px
 }
 
 .slide-inner {
@@ -514,6 +510,8 @@ body {
   opacity: 1;
 }
 
+
+
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
   .slide {
@@ -525,8 +523,12 @@ body {
   }
 
   @keyframes scrollInfinite {
+    0% {
+      transform: translateX(0);
+    }
+  
     100% {
-      transform: translateX(calc(-280px * 10));
+      transform: translateX(-33.33%);
     }
   }
 }
