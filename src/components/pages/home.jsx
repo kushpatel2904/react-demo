@@ -12,6 +12,7 @@ export default function Home() {
   const [showTopBtn, setShowTopBtn] = useState(false);
 
 
+  
   /* 🚀 2. SCROLL EFFECTS (Intersection Observer & Back to Top) */
   useEffect(() => {
     // Intersection Observer for scroll reveal
@@ -75,7 +76,6 @@ export default function Home() {
 
         setHero(heroData?.image || "");
         setWhyImages(whyData);
-        // 🔥 workImages collection me sirf works images hai
         setWorkImages(workData);
       }
       catch (error) {

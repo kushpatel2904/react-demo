@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import ArvindSection from "./arvindsection";
+import Arvindbook from "./arvindbook"
 import "./arvind.css";
 
 export default function Arvind() {
@@ -240,6 +241,7 @@ export default function Arvind() {
           </div>
         </div>
       </section>
+      <Arvindbook />
     </>
   );
 }

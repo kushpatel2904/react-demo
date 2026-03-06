@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import JHamstedsection from "./jhamstedsection";
+import JHamstedbook from "./jhamstedbook";
 import "./jhamsted.css";
 
 export default function JHamsted() {
@@ -295,6 +296,7 @@ export default function JHamsted() {
           </div>
         </div>
       </section>
+      <JHamstedbook />
     </>
   );
 }

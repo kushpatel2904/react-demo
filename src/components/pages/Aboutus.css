@@ -2364,3 +2364,36 @@
 }
 
 
+.timeline-section {
+  margin: 50px 0;
+  text-align: center;
+}
+
+.timeline-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.timeline-point {
+  background: #f4f4f4;
+  padding: 15px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.timeline-point.active {
+  background: gold;
+  transform: scale(1.1);
+}
+
+.timeline-detail {
+  margin-top: 30px;
+}
+
+.timeline-detail img {
+  max-width: 300px;
+  border-radius: 10px;
+}

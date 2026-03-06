@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import OccasionSection from "./OccasionSection";
+import Flipbook from "./flipbook";
 import "./siyaram.css";
 
 export default function Siyaram() {
@@ -13,6 +14,9 @@ export default function Siyaram() {
   const [shirtingImg, setShirtingImg] = useState(""); // shirting image
   const [loading, setLoading] = useState(true); 
   const [showTopBtn, setShowTopBtn] = useState(false);
+  
+
+  
 
   /* 🚀 2. SCROLL EFFECTS (Intersection Observer & Back to Top) */
   useEffect(() => {
@@ -269,6 +273,8 @@ export default function Siyaram() {
           </div>
         </div>
       </section>
+
+      <Flipbook />
     </>
   );
 }

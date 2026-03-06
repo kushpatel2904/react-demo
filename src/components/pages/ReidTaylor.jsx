@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import ReidTaylorsection from "./ReidTaylorsection";
+import Reidtaylorbook from "./reidtaylorbook"
 import "./ReidTaylor.css";
 
 export default function ReidTaylor() {
@@ -245,6 +246,8 @@ useEffect(() => {
           </div>
         </div>
       </section>
+
+      <Reidtaylorbook />
     </>
   );
 }

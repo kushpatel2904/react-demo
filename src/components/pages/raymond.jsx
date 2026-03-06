@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import RaymondSection from "./raymondsection";
+import Raymondbook  from "./raymondbook"
 import "./raymond.css";
 
 export default function Raymond() {
@@ -248,6 +249,8 @@ export default function Raymond() {
           </div>
         </div>
       </section>
+
+      <Raymondbook />
     </>
   );
 }
