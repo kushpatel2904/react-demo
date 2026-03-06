@@ -98,7 +98,7 @@ const [category, setCategory] = useState("");
           break;
   
         case "slider":
-          collectionName = "reidtaylorLookbook";
+          collectionName = "siyaramLookbook";
           payload.order = Number(imageOrder);
           break;
   

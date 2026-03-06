@@ -52,6 +52,8 @@ export default function Lookbook() {
           showCover={true}
           drawShadow={true}
           flippingTime={800}
+          onTouchStart={(e) => e.stopPropagation()} // prevent page scroll on touch
+          onTouchMove={(e) => e.stopPropagation()}
           className="flipbook-container"
         >
           {lookbookPages.map((img, index) => (

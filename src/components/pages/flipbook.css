@@ -177,4 +177,12 @@
   }
 
 
+  .flipbook-wrapper {
+    position: relative;
+    overflow: hidden;
+    touch-action: pan-y; /* vertical scroll allowed outside flipbook */
+  }
   
+  .flipbook-container {
+    touch-action: none; /* disable page scroll inside flipbook */
+  }
