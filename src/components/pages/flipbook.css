@@ -1,188 +1,250 @@
+.lookbook-wrapper{
+width:100%;
+background:#f5f5f5;
+padding-top:40px;
+}
 
-.flipbook-container {
-    display: flex;
-    justify-content: center;
-    margin: 50px auto;
-    perspective: 1500px; /* Gives the 3D depth effect */
+.lookbook-title{
+text-align:center;
+font-size:32px;
+color:#9b1c2c;
+font-weight:500;
+margin-bottom:20px;
+}
+
+.lookbook-container{
+width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#2f2f2f;
+padding:40px 0;
+position:relative;
+overflow:hidden; /* prevents movement */
+}
+
+.flipbook{
+box-shadow:0 20px 40px rgba(0,0,0,0.6);
+}
+
+
+
+.page img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+.page-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #E31E33; /* The deep red/pink from the image */
+  font-family: 'Playfair Display', serif;
+  width: 100%;
+}
+
+.page-text h2 {
+  font-size: 4rem;
+  font-weight: 400;
+  letter-spacing: 12px; /* Key for that "luxury" look */
+  margin: 0;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* The "by" section with lines */
+.subtitle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.subtitle-container::before,
+.subtitle-container::after {
+  content: "";
+  height: 1px;
+  width: 60px;
+  background-color: #E31E33;
+  margin: 0 15px;
+}
+
+.page-text .by-text {
+  font-style: italic;
+  font-family: 'Georgia', serif;
+  font-size: 1.5rem;
+  text-transform: lowercase;
+}
+
+.page-text .brand-name {
+  font-size: 3rem;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: -5px;
+}
+
+
+.lookbook-nav-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#b8002e;
+  color:white;
+  border:none;
+  width:55px;
+  height:95px;
+  font-size:26px;
+  cursor:pointer;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   }
   
-  .page {
-    background-color: #fdfdfd;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+  .lookbook-nav-btn.left{
+  left:0;
+  border-radius:0 8px 8px 0;
   }
   
-  .page img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .lookbook-nav-btn.right{
+  right:0;
+  border-radius:8px 0 0 8px;
+  }
+  
+  .lookbook-nav-btn:hover{
+  background:#8e0023;
   }
 
+  .flipbook{
+    touch-action:pan-y;
+    }
     
-  /* ================= LOOKBOOK SECTION ================= */
-  
-  .lookbook-section{
-    width:100%;
-    padding:100px 20px;
-    background:#f6f6f6;
-    text-align:center;
+    .page{
+    touch-action:none; /* stops page dragging */
+    }
+
+  /* ============================= */
+/* Tablet (1024px and below) */
+/* ============================= */
+
+@media (max-width:1024px){
+
+  .lookbook-title{
+  font-size:28px;
   }
   
-  /* HEADER */
-  
-  .lookbook-header h2{
-    font-size:40px;
-    letter-spacing:3px;
-    font-weight:600;
-    color:#222;
-  }
-  
-  .lookbook-header p{
-    margin-top:10px;
-    color:#777;
-    font-size:16px;
-  }
-  
-  /* GOLD LINE */
-  
-  .lookbook-header::after{
-    content:"";
-    width:80px;
-    height:3px;
-    background:#caa55b;
-    display:block;
-    margin:15px auto 40px;
-  }
-  
-  /* ================= FLIPBOOK ================= */
-  
-  .flipbook-container{
-    display:flex;
-    justify-content:center;
-    align-items:center;
+  .lookbook-container{
+  padding:30px 10px;
   }
   
   .flipbook{
-    box-shadow:0 25px 50px rgba(0,0,0,0.25);
+  width:90%;
   }
   
-  /* ================= PAGE ================= */
+  .lookbook-nav-btn{
+  width:45px;
+  height:80px;
+  font-size:22px;
+  }
+  
+  .page-text h2{
+  font-size:22px;
+  }
+  
+  .page-text p{
+  font-size:13px;
+  }
+  
+  }
+  
+  
+  /* ============================= */
+  /* Mobile (768px and below) */
+  /* ============================= */
+  
+  @media (max-width:768px){
+  
+  .lookbook-wrapper{
+  padding-top:20px;
+  }
+  
+  .lookbook-title{
+  font-size:24px;
+  }
+  
+  .lookbook-container{
+  padding:20px 5px;
+  }
+  
+  .flipbook{
+  width:95%;
+  }
   
   .page{
-    background:white;
-    border-radius:8px;
-    overflow:hidden;
+  border:5px solid #eee;
   }
   
-  /* IMAGE WRAPPER */
-  
-  .page-image{
-    position:relative;
-    width:100%;
-    height:100%;
+  .lookbook-nav-btn{
+  width:40px;
+  height:65px;
+  font-size:20px;
   }
   
-  .page-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
+  .page-text{
+  padding:12px;
   }
   
-  /* ================= TEXT OVERLAY ================= */
-  
-  .page-overlay{
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    padding:30px;
-  
-    background:linear-gradient(
-      to top,
-      rgba(0,0,0,0.7),
-      rgba(0,0,0,0)
-    );
-  
-    color:white;
-    text-align:left;
+  .page-text h2{
+  font-size:18px;
+  letter-spacing:2px;
   }
   
-  .page-overlay h3{
-    font-size:22px;
-    letter-spacing:2px;
-    margin-bottom:5px;
-  }
-  
-  .page-overlay p{
-    font-size:14px;
-    color:#ddd;
-  }
-  
-  /* ================= HOVER EFFECT ================= */
-  
-  .page:hover img{
-    transform:scale(1.05);
-    transition:0.5s;
-  }
-  
-  /* ================= RESPONSIVE ================= */
-  
-  @media(max-width:768px){
-  
-  .lookbook-section{
-    padding:70px 15px;
-  }
-  
-  .lookbook-header h2{
-    font-size:28px;
-  }
-  
-  .page-overlay h3{
-    font-size:18px;
+  .page-text p{
+  font-size:12px;
   }
   
   }
   
   
-  .lookbook-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    position: relative;
-    padding: 40px 0;
+  /* ============================= */
+  /* Small Mobile (480px and below) */
+  /* ============================= */
+  
+  @media (max-width:480px){
+  
+  .lookbook-title{
+  font-size:20px;
   }
   
-  /* Luxury Overlay Effect */
-  .page-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 40px 20px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.7));
-    color: white;
-    text-align: center;
+  .lookbook-container{
+  padding:15px 5px;
   }
   
-  .overlay-content h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    margin-bottom: 5px;
-    letter-spacing: 2px;
-  }
-
-
-  .flipbook-wrapper {
-    position: relative;
-    overflow: hidden;
-    touch-action: pan-y; /* vertical scroll allowed outside flipbook */
+  .flipbook{
+  width:100%;
   }
   
-  .flipbook-container {
-    touch-action: none; /* disable page scroll inside flipbook */
+  .lookbook-nav-btn{
+  width:35px;
+  height:55px;
+  font-size:18px;
+  }
+  
+  .page-text{
+  padding:10px;
+  }
+  
+  .page-text h2{
+  font-size:16px;
+  }
+  
+  .page-text p{
+  font-size:11px;
+  }
+  
   }

@@ -1,75 +1,116 @@
-import React, { useState,useEffect,useRef } from "react";
-import { collection, getDocs , orderBy , query} from "firebase/firestore";
+import React, { useState, useEffect, useRef } from "react";
+import HTMLFlipBook from "react-pageflip";
 import { db } from "../../firebase";
-import HTMLFlipBook from 'react-pageflip';
-import "./flipbook.css"
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
+
+import "./flipbook.css";
 
 export default function Lookbook() {
-    const [lookbookPages, setLookbookPages] = useState([]); // <--- Yahan define hona chahiye
-    const book = useRef();
-  
-    // ... baaki states ...
-  
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          // ... fetching logic ...
-          
-         // Lookbook fetching update
-const lookbookQuery = query(
-    collection(db, "siyaramLookbook"), 
-    orderBy("order", "asc") // 👈 Order hona zaroori hai
-  );
-  const lookbookSnap = await getDocs(lookbookQuery);
-  setLookbookPages(lookbookSnap.docs.map(doc => doc.data().image));
-          
-        } catch (err) {
-          console.error(err);
-        }
-      };
-      fetchData();
-    }, []);
- 
+
+  const [lookbookPages, setLookbookPages] = useState([]);
+  const book = useRef(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+useEffect(() => {
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+
+  window.addEventListener("resize", handleResize);
+
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
+
+  useEffect(() => {
+
+    const fetchLookbook = async () => {
+
+      const q = query(
+        collection(db, "siyaramLookbook"),
+        orderBy("order", "asc")
+      );
+
+      const snapshot = await getDocs(q);
+
+      const pages = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+
+      setLookbookPages(pages);
+
+    };
+
+    fetchLookbook();
+
+  }, []);
 
   return (
-    <section className="lookbook-section scroll-hide">
-      <div className="lookbook-header">
-        <h2>Look Book</h2>
-        <p>Experience the finesse of our premium fabric</p>
-      </div>
 
-      <div className="flipbook-wrapper">
-        {/* Navigation Buttons */}
-        <HTMLFlipBook
-          ref={book}
-          width={420}
-          height={560}
-          size="stretch"
-          minWidth={300}
-          maxWidth={520}
-          showCover={true}
-          drawShadow={true}
-          flippingTime={800}
-          onTouchStart={(e) => e.stopPropagation()} // prevent page scroll on touch
-           onTouchMove={(e) => e.stopPropagation()}
-          className="flipbook-container"
+    <div className="lookbook-wrapper">
+
+      <h2 className="lookbook-title">Look Book</h2>
+
+      <div className="lookbook-container">
+
+        <button
+          className="lookbook-nav-btn left"
+          onClick={() => book.current.pageFlip().flipPrev()}
         >
-          {lookbookPages.map((img, index) => (
-            <div className="page" key={index}>
-              <div className="page-image">
-                <img src={img} alt={`img ${index}`} />
-                <div className="page-overlay">
-                  <div className="overlay-content">
-                    <h3>{img.title || "RIVAAJ"}</h3>
-                    <p>{img.subtitle || "Premium Series"}</p>
+          ❮
+        </button>
+
+        <HTMLFlipBook
+          width={isMobile ? 320 : 550}
+          height={isMobile ? 450 : 700}
+          size={isMobile ? "stretch" : "fixed"}
+          minWidth={300}
+          maxWidth={900}
+          minHeight={400}
+          maxHeight={1100}
+          showCover={true}
+          mobileScrollSupport={true}
+          ref={book}
+          className="flipbook"
+        >
+
+          {lookbookPages.map((page) => (
+
+            <div key={page.id} className="page">
+
+              <img src={page.image} alt="" />
+
+              {page.title && (
+                <div className="page-text">
+                  {/* "LINEN" */}
+                  <h2>{page.title}</h2>
+
+                  {/* The "by" with lines */}
+                  <div className="subtitle-container">
+                    <span className="by-text">by</span>
                   </div>
+
+                  {/* "ARVIND" */}
+                  <div className="brand-name">{page.subtitle}</div>
                 </div>
-              </div>
+              )}
             </div>
+
+            
+
           ))}
+
         </HTMLFlipBook>
 
+        <button
+          className="lookbook-nav-btn right"
+          onClick={() => book.current.pageFlip().flipNext()}
+        >
+          ❯
+        </button>
+
       </div>
-    </section>
+
+    </div>
   );
 }
