@@ -39,35 +39,35 @@ export default function Dashboard() {
   const [imageOrder, setImageOrder] = useState("");
   const [uploading, setUploading] = useState(false);
   const [title, setTitle] = useState("");
-const [brand, setBrand] = useState("");
-const [category, setCategory] = useState("");
+  const [brand, setBrand] = useState("");
+  const [category, setCategory] = useState("");
 
   const handleImageUpload = async () => {
     if (!imageFile) {
       toast.error("Please select an image ❌");
       return;
     }
-  
+
     if (!imageType) {
       toast.error("Please select image type ❌");
       return;
     }
-  
+
     if (imageType === "slider" && !imageOrder) {
       toast.error("Please enter image order for slider ❌");
       return;
     }
-  
+
     try {
       setUploading(true);
-  
+
       // 🔥 1️⃣ Upload to Cloudinary
       const formData = new FormData();
       formData.append("file", imageFile);
       formData.append("upload_preset", "kvooief1");
-  
+
       const cloudName = "dzde5sqph";
-  
+
       const response = await fetch(
         `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
         {
@@ -75,60 +75,60 @@ const [category, setCategory] = useState("");
           body: formData,
         }
       );
-  
+
       const data = await response.json();
-  
+
       if (!data.secure_url) {
         throw new Error("Cloudinary upload failed");
       }
-  
+
       const imageUrl = data.secure_url;
-  
+
       // 🔥 2️⃣ Decide Firestore Collection Dynamically
       let collectionName = "";
       let payload = {
         image: imageUrl,
         createdAt: new Date(),
       };
-  
+
       switch (imageType) {
         case "hero":
           collectionName = "about";
           payload.section = "process";  // 👈 ADD THIS
           break;
-  
+
         case "slider":
           collectionName = "arvindLookbook";
           payload.order = Number(imageOrder);
           break;
-  
-          case "suiting":
-            case "shirting":
-              collectionName = "products";
-              payload.type = imageType;
-              payload.title = title;
-              payload.brand = brand;
-              payload.category = category;
-              break;
-  
+
+        case "suiting":
+        case "shirting":
+          collectionName = "products";
+          payload.type = imageType;
+          payload.title = title;
+          payload.brand = brand;
+          payload.category = category;
+          break;
+
         default:
           toast.error("Invalid image type ❌");
           return;
       }
-  
+
       // 🔥 3️⃣ Save to Firestore
       await addDoc(collection(db, collectionName), payload);
-  
+
       toast.success("Image uploaded successfully ✅");
-  
+
       // 🔥 Reset fields
       setImageFile(null);
       setImageOrder("");
       setImageType("");
       setTitle("");
-setBrand("");
-setCategory("");
-  
+      setBrand("");
+      setCategory("");
+
     } catch (error) {
       console.error("Upload Error:", error);
       toast.error("Image upload failed ❌");
@@ -324,7 +324,7 @@ setCategory("");
     setFoundCustomer(null);
   };
 
- 
+
 
   const [activeView, setActiveView] = useState(() => {
     return localStorage.getItem("activeView") || "dashboard";
@@ -428,7 +428,7 @@ setCategory("");
       } else {
         setLoggedIn(false); // user logout, login page show
       }
-         setLoading(false); // important
+      setLoading(false); // important
     });
 
     return () => unsubscribe();
@@ -630,7 +630,7 @@ setCategory("");
 
   };
 
-  
+
   if (loading) {
     return (
       <div className="loader-wrapper">
@@ -1607,7 +1607,7 @@ setCategory("");
                         {
                           label: "Order Value (₹)",
                           data: orders.map((o) => o.grandTotal),
-                          backgroundColor: "rgba(197, 160, 89, 0.8)", 
+                          backgroundColor: "rgba(197, 160, 89, 0.8)",
                           hoverBackgroundColor: "#c5a059",
                           borderRadius: 6,
                         },
@@ -1657,71 +1657,71 @@ setCategory("");
           </div>
         )}
 
-{activeView === "images" && (
-  <div className="images-container">
-    <h2>Upload Siyaram Page Images</h2>
+        {activeView === "images" && (
+          <div className="images-container">
+            <h2>Upload Siyaram Page Images</h2>
 
-    <div className="image-upload-box">
+            <div className="image-upload-box">
 
-      {/* 🔥 Image Type Select */}
-      <select
-        value={imageType}
-        onChange={(e) => setImageType(e.target.value)}
-      >
-        <option value="">Select Image Type</option>
-        <option value="hero">Hero Image</option>
-        <option value="slider">Slider Image</option>
-        <option value="suiting">Suiting Image</option>
-        <option value="shirting">Shirting Image</option>
-      </select>
+              {/* 🔥 Image Type Select */}
+              <select
+                value={imageType}
+                onChange={(e) => setImageType(e.target.value)}
+              >
+                <option value="">Select Image Type</option>
+                <option value="hero">Hero Image</option>
+                <option value="slider">Slider Image</option>
+                <option value="suiting">Suiting Image</option>
+                <option value="shirting">Shirting Image</option>
+              </select>
 
-      {/* 🔥 Title + Brand only for Suiting / Shirting */}
-      {(imageType === "suiting" || imageType === "shirting") && (
-        <>
-          <input
-            type="text"
-            placeholder="Enter Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
+              {/* 🔥 Title + Brand only for Suiting / Shirting */}
+              {(imageType === "suiting" || imageType === "shirting") && (
+                <>
+                  <input
+                    type="text"
+                    placeholder="Enter Title"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                  />
 
-          <input
-            type="text"
-            placeholder="Enter Brand"
-            value={brand}
-            onChange={(e) => setBrand(e.target.value)}
-          />
-        </>
-      )}
+                  <input
+                    type="text"
+                    placeholder="Enter Brand"
+                    value={brand}
+                    onChange={(e) => setBrand(e.target.value)}
+                  />
+                </>
+              )}
 
-      {/* 🔥 Order input only for slider */}
-      {imageType === "slider" && (
-        <input
-          type="number"
-          placeholder="Enter Image Order"
-          value={imageOrder}
-          onChange={(e) => setImageOrder(e.target.value)}
-        />
-      )}
+              {/* 🔥 Order input only for slider */}
+              {imageType === "slider" && (
+                <input
+                  type="number"
+                  placeholder="Enter Image Order"
+                  value={imageOrder}
+                  onChange={(e) => setImageOrder(e.target.value)}
+                />
+              )}
 
-      {/* Image Upload */}
-      <input
-        type="file"
-        accept="image/*"
-        onChange={(e) => setImageFile(e.target.files[0])}
-      />
+              {/* Image Upload */}
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => setImageFile(e.target.files[0])}
+              />
 
-      <button
-        className="submit-btn"
-        onClick={handleImageUpload}
-        disabled={uploading}
-      >
-        {uploading ? "Uploading..." : "Upload Image"}
-      </button>
+              <button
+                className="submit-btn"
+                onClick={handleImageUpload}
+                disabled={uploading}
+              >
+                {uploading ? "Uploading..." : "Upload Image"}
+              </button>
 
-    </div>
-  </div>
-)}
+            </div>
+          </div>
+        )}
 
         {whatsAppModal && (
           <div className="modal-overlay">

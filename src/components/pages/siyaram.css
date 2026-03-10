@@ -86,14 +86,17 @@ body {
   width: 70%;
   text-align: left;
 }
+
 /* ================= IMAGE-TEXT FLEX SECTIONS ================= */
 .image-text-container,
 .suiting-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px; /* Center container */
-  margin: 40px auto; /* auto se apne aap center ho jayega, margin-left ki zaroorat nahi */
+  max-width: 1200px;
+  /* Center container */
+  margin: 40px auto;
+  /* auto se apne aap center ho jayega, margin-left ki zaroorat nahi */
   padding: 0 40px;
   gap: 40px;
 }
@@ -102,7 +105,8 @@ body {
 .suiting-text,
 .shirting-text h1,
 .suiting-text h1 {
-  width: 100%; /* 120% ya fixed pixel margin hataya */
+  width: 100%;
+  /* 120% ya fixed pixel margin hataya */
   margin-left: 0 !important;
   margin-right: 0 !important;
   font-size: 46px;
@@ -110,19 +114,26 @@ body {
   color: #444;
 }
 
-.h5, .h6, 
-.shirting-text h5, .shirting-text h6,
-.suiting-text h5, .suiting-text h6 {
-  width: 100%; /* Content ko container ke andar rakhne ke liye */
+.h5,
+.h6,
+.shirting-text h5,
+.shirting-text h6,
+.suiting-text h5,
+.suiting-text h6 {
+  width: 100%;
+  /* Content ko container ke andar rakhne ke liye */
   margin-left: 0;
 }
 
-.container-image, .suiting-image {
+.container-image,
+.suiting-image {
   flex: 1;
-  width: 100%; /* Parent width ke andar */
+  width: 100%;
+  /* Parent width ke andar */
 }
 
-.container-image img, .suiting-image img {
+.container-image img,
+.suiting-image img {
   width: 100%;
   height: auto;
   display: block;
@@ -135,7 +146,8 @@ body {
 }
 
 .hero-image img {
-  width: 100%; /* 120% hataya, isse hi scroll aa raha tha */
+  width: 100%;
+  /* 120% hataya, isse hi scroll aa raha tha */
   max-height: 85%;
   object-fit: contain;
 }
@@ -278,7 +290,7 @@ body {
   .hero-title-siyaram {
     font-size: 22px;
   }
-  
+
   .value-card {
     width: 100%;
   }
@@ -290,6 +302,7 @@ body {
   justify-content: center;
   margin-top: 20px;
 }
+
 .fabric-pickers h4 {
   text-align: center;
   margin-bottom: 10px;
@@ -297,7 +310,11 @@ body {
 
 
 /* Play Button Overlay */
-.hero-image-wrapper { position: relative; width: 100%; flex-shrink: 0; }
+.hero-image-wrapper {
+  position: relative;
+  width: 100%;
+  flex-shrink: 0;
+}
 
 .video-play-overlay {
   position: absolute;
@@ -323,7 +340,10 @@ body {
 /* Video Modal Styling */
 .video-modal-backdrop {
   position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.9);
   z-index: 9999;
   display: flex;
@@ -340,14 +360,19 @@ body {
   border: 2px solid #d4af37;
 }
 
-.macro-video { width: 100%; height: 100%; object-fit: cover; }
+.macro-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .close-video {
   position: absolute;
-  top: -40px; right: 0;
-  background: none; color: white; border: none;
-  font-size: 30px; cursor: pointer;
+  top: -40px;
+  right: 0;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
 }
-
-
-

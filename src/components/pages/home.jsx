@@ -4,15 +4,15 @@ import { db } from "../../firebase";
 import { collection, getDocs } from "firebase/firestore";
 import "./home.css";
 
+
 export default function Home() {
-  const [hero, setHero] = useState(""); 
-  const [whyImages, setWhyImages] = useState([]); 
-  const [workImages, setWorkImages] = useState([]); 
-  const [loading, setLoading] = useState(true); 
+  const [hero, setHero] = useState("");
+  const [whyImages, setWhyImages] = useState([]);
+  const [workImages, setWorkImages] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [showTopBtn, setShowTopBtn] = useState(false);
+  const [showVideo, setShowVideo] = useState(false); // Video Modal State
 
-
-  
   /* 🚀 2. SCROLL EFFECTS (Intersection Observer & Back to Top) */
   useEffect(() => {
     // Intersection Observer for scroll reveal
@@ -45,7 +45,7 @@ export default function Home() {
     };
   }, [loading]); // Elements load thay pachi observer trigger thase
 
- 
+
   /* 🔥 FIREBASE DATA FETCH */
   useEffect(() => {
     const fetchImages = async () => {
@@ -88,7 +88,6 @@ export default function Home() {
     fetchImages();
   }, []);
 
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -102,11 +101,37 @@ export default function Home() {
     );
   }
 
+  // Handle closing modal
+  const handleCloseVideo = () => {
+    setShowVideo(false);
+  };
+
   return (
     <>
+      {/* VIDEO MODAL */}
+      <div className={`video-modal ${showVideo ? "show" : ""}`} onClick={handleCloseVideo}>
+        <div className="video-modal-content" onClick={(e) => e.stopPropagation()}>
+          <button className="close-video-btn" onClick={handleCloseVideo} aria-label="Close video">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+            </svg>
+          </button>
+
+          {/* Only render iframe when modal is open to save data/loading */}
+          {showVideo && (
+            <iframe
+              src="https://www.youtube.com/embed/xQSCD5kvNfk?autoplay=1"
+              title="Brand Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          )}
+        </div>
+      </div>
+
       {/* BACK TO TOP BUTTON */}
-      <button 
-        className={`back-to-top ${showTopBtn ? "show" : ""}`} 
+      <button
+        className={`back-to-top ${showTopBtn ? "show" : ""}`}
         onClick={scrollToTop}
         title="Go to top"
       >
@@ -132,9 +157,20 @@ export default function Home() {
             Explore timeless fabrics, crafted for elegance & comfort.
           </p>
 
-          <a href="/Collections" className="hero-btn">
-            Shop Collection
-          </a>
+          <div className="hero-actions">
+            <a href="/Collections" className="hero-btn">
+              Shop Collection
+            </a>
+
+            <button className="video-btn" onClick={() => setShowVideo(true)}>
+              <span className="play-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+              Watch Brand Video
+            </button>
+          </div>
         </div>
       </section>
 
@@ -174,27 +210,28 @@ export default function Home() {
         </div>
 
         <div className="slider-container">
-  <div className="slider-track">
+          <div className="slider-track">
 
-    {[...workImages, ...workImages, ...workImages].map((item, index) => (
-      <div className="slide" key={index}>
-        <div className="slide-inner">
-          <img
-            src={item.image}
-            alt={`Work ${index}`}
-            className="work-img-slider"
-          />
+            {[...workImages, ...workImages, ...workImages].map((item, index) => (
+              <div className="slide" key={index}>
+                <div className="slide-inner">
+                  <img
+                    src={item.image}
+                    alt={`Work ${index}`}
+                    className="work-img-slider"
+                  />
 
-          <div className="slide-overlay">
-            <span>RIVAAJ EXCLUSIVE</span>
+                  <div className="slide-overlay">
+                    <span>RIVAAJ EXCLUSIVE</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+
           </div>
         </div>
-      </div>
-    ))}
-
-  </div>
-</div>
       </section>
+
     </>
   );
 }

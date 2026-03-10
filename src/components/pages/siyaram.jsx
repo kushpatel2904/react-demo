@@ -12,11 +12,11 @@ export default function Siyaram() {
   const [sliderImages, setSliderImages] = useState([]); // slider images array
   const [suitingImg, setSuitingImg] = useState(""); // suiting image
   const [shirtingImg, setShirtingImg] = useState(""); // shirting image
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
   const [showTopBtn, setShowTopBtn] = useState(false);
-  
 
-  
+
+
 
   /* 🚀 2. SCROLL EFFECTS (Intersection Observer & Back to Top) */
   useEffect(() => {
@@ -89,7 +89,7 @@ export default function Siyaram() {
       } catch (err) {
         console.error("Siyaram data fetch error:", err);
       } finally {
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
@@ -128,7 +128,7 @@ export default function Siyaram() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  
+
   if (loading) {
     return (
       <div className="loader-wrapper">
@@ -140,16 +140,16 @@ export default function Siyaram() {
 
   return (
     <>
-        {/* BACK TO TOP BUTTON */}
-        <button 
-        className={`back-to-top ${showTopBtn ? "show" : ""}`} 
+      {/* BACK TO TOP BUTTON */}
+      <button
+        className={`back-to-top ${showTopBtn ? "show" : ""}`}
         onClick={scrollToTop}
         title="Go to top"
       >
         ↑
       </button>
 
-      
+
       {/* ================= HERO SECTION ================= */}
       <section
         className="hero-section-siyaram scroll-hide"

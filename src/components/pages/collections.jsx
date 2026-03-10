@@ -34,7 +34,7 @@ export default function Filters() {
     fetchData();
   }, []);
 
-  
+
   // ✅ Unique brands
   const brands = [
     ...new Set(
@@ -55,10 +55,10 @@ export default function Filters() {
     }
   };
 
-    /* Clear Filters */
-    const clearFilters = () => {
-      setSelectedBrands([]);
-    };
+  /* Clear Filters */
+  const clearFilters = () => {
+    setSelectedBrands([]);
+  };
 
   // ✅ Filter logic (multi select)
   const filteredData =
@@ -76,7 +76,7 @@ export default function Filters() {
       </div>
     );
   }
-  
+
   return (
     <div className="collections1-wrapper">
       {loading ? (
@@ -107,7 +107,7 @@ export default function Filters() {
                   />
                   {brand}
                 </label>
-               
+
               ))}
             </div>
 

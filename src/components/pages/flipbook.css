@@ -1,39 +1,43 @@
-.lookbook-wrapper{
-width:100%;
-background:#f5f5f5;
-padding-top:40px;
+.lookbook-wrapper {
+  width: 100%;
+  background: #f5f5f5;
+  padding-top: 40px;
 }
 
-.lookbook-title{
-text-align:center;
-font-size:32px;
-color:#9b1c2c;
-font-weight:500;
-margin-bottom:20px;
+.lookbook-title {
+  text-align: center;
+  font-size: 32px;
+  color: #9b1c2c;
+  font-weight: 500;
+  margin-bottom: 20px;
 }
 
-.lookbook-container{
-width:100%;
-display:flex;
-justify-content:center;
-align-items:center;
-background:#2f2f2f;
-padding:40px 0;
-position:relative;
-overflow:hidden; /* prevents movement */
+.lookbook-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2f2f2f;
+  padding: 40px 0;
+  position: relative;
+  overflow: hidden;
+  /* prevents movement */
 }
 
-.flipbook{
-box-shadow:0 20px 40px rgba(0,0,0,0.6);
+.flipbook {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 
 
-.page img{
-width:100%;
-height:100%;
-object-fit:cover;
+.page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 
 .page-text {
@@ -42,7 +46,8 @@ object-fit:cover;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: #E31E33; /* The deep red/pink from the image */
+  color: #E31E33;
+  /* The deep red/pink from the image */
   font-family: 'Playfair Display', serif;
   width: 100%;
 }
@@ -50,7 +55,8 @@ object-fit:cover;
 .page-text h2 {
   font-size: 4rem;
   font-weight: 400;
-  letter-spacing: 12px; /* Key for that "luxury" look */
+  letter-spacing: 12px;
+  /* Key for that "luxury" look */
   margin: 0;
   line-height: 1;
   text-transform: uppercase;
@@ -89,162 +95,163 @@ object-fit:cover;
 }
 
 
-.lookbook-nav-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:#b8002e;
-  color:white;
-  border:none;
-  width:55px;
-  height:95px;
-  font-size:26px;
-  cursor:pointer;
-  z-index:10;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  }
-  
-  .lookbook-nav-btn.left{
-  left:0;
-  border-radius:0 8px 8px 0;
-  }
-  
-  .lookbook-nav-btn.right{
-  right:0;
-  border-radius:8px 0 0 8px;
-  }
-  
-  .lookbook-nav-btn:hover{
-  background:#8e0023;
-  }
+.lookbook-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #b8002e;
+  color: white;
+  border: none;
+  width: 55px;
+  height: 95px;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .flipbook{
-    touch-action:pan-y;
-    }
-    
-    .page{
-    touch-action:none; /* stops page dragging */
-    }
+.lookbook-nav-btn.left {
+  left: 0;
+  border-radius: 0 8px 8px 0;
+}
 
-  /* ============================= */
+.lookbook-nav-btn.right {
+  right: 0;
+  border-radius: 8px 0 0 8px;
+}
+
+.lookbook-nav-btn:hover {
+  background: #8e0023;
+}
+
+.flipbook {
+  touch-action: pan-y;
+}
+
+.page {
+  touch-action: none;
+  /* stops page dragging */
+}
+
+/* ============================= */
 /* Tablet (1024px and below) */
 /* ============================= */
 
-@media (max-width:1024px){
+@media (max-width:1024px) {
 
-  .lookbook-title{
-  font-size:28px;
+  .lookbook-title {
+    font-size: 28px;
   }
-  
-  .lookbook-container{
-  padding:30px 10px;
+
+  .lookbook-container {
+    padding: 30px 10px;
   }
-  
-  .flipbook{
-  width:90%;
+
+  .flipbook {
+    width: 90%;
   }
-  
-  .lookbook-nav-btn{
-  width:45px;
-  height:80px;
-  font-size:22px;
+
+  .lookbook-nav-btn {
+    width: 45px;
+    height: 80px;
+    font-size: 22px;
   }
-  
-  .page-text h2{
-  font-size:22px;
+
+  .page-text h2 {
+    font-size: 22px;
   }
-  
-  .page-text p{
-  font-size:13px;
+
+  .page-text p {
+    font-size: 13px;
   }
-  
+
+}
+
+
+/* ============================= */
+/* Mobile (768px and below) */
+/* ============================= */
+
+@media (max-width:768px) {
+
+  .lookbook-wrapper {
+    padding-top: 20px;
   }
-  
-  
-  /* ============================= */
-  /* Mobile (768px and below) */
-  /* ============================= */
-  
-  @media (max-width:768px){
-  
-  .lookbook-wrapper{
-  padding-top:20px;
+
+  .lookbook-title {
+    font-size: 24px;
   }
-  
-  .lookbook-title{
-  font-size:24px;
+
+  .lookbook-container {
+    padding: 20px 5px;
   }
-  
-  .lookbook-container{
-  padding:20px 5px;
+
+  .flipbook {
+    width: 95%;
   }
-  
-  .flipbook{
-  width:95%;
+
+  .page {
+    border: 5px solid #eee;
   }
-  
-  .page{
-  border:5px solid #eee;
+
+  .lookbook-nav-btn {
+    width: 40px;
+    height: 65px;
+    font-size: 20px;
   }
-  
-  .lookbook-nav-btn{
-  width:40px;
-  height:65px;
-  font-size:20px;
+
+  .page-text {
+    padding: 12px;
   }
-  
-  .page-text{
-  padding:12px;
+
+  .page-text h2 {
+    font-size: 18px;
+    letter-spacing: 2px;
   }
-  
-  .page-text h2{
-  font-size:18px;
-  letter-spacing:2px;
+
+  .page-text p {
+    font-size: 12px;
   }
-  
-  .page-text p{
-  font-size:12px;
+
+}
+
+
+/* ============================= */
+/* Small Mobile (480px and below) */
+/* ============================= */
+
+@media (max-width:480px) {
+
+  .lookbook-title {
+    font-size: 20px;
   }
-  
+
+  .lookbook-container {
+    padding: 15px 5px;
   }
-  
-  
-  /* ============================= */
-  /* Small Mobile (480px and below) */
-  /* ============================= */
-  
-  @media (max-width:480px){
-  
-  .lookbook-title{
-  font-size:20px;
+
+  .flipbook {
+    width: 100%;
   }
-  
-  .lookbook-container{
-  padding:15px 5px;
+
+  .lookbook-nav-btn {
+    width: 35px;
+    height: 55px;
+    font-size: 18px;
   }
-  
-  .flipbook{
-  width:100%;
+
+  .page-text {
+    padding: 10px;
   }
-  
-  .lookbook-nav-btn{
-  width:35px;
-  height:55px;
-  font-size:18px;
+
+  .page-text h2 {
+    font-size: 16px;
   }
-  
-  .page-text{
-  padding:10px;
+
+  .page-text p {
+    font-size: 11px;
   }
-  
-  .page-text h2{
-  font-size:16px;
-  }
-  
-  .page-text p{
-  font-size:11px;
-  }
-  
-  }
+
+}
