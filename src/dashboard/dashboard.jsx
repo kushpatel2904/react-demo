@@ -111,6 +111,17 @@ export default function Dashboard() {
           payload.category = category;
           break;
 
+        case "ct_image1":
+        case "ct_image2":
+        case "ct_image3":
+        case "ct_step1":
+        case "ct_step2":
+        case "ct_step3":
+        case "ct_step4":
+          collectionName = "customTailoring";
+          payload.type = imageType;
+          break;
+
         default:
           toast.error("Invalid image type ❌");
           return;
@@ -357,6 +368,7 @@ export default function Dashboard() {
   // Users & orders state
   const [users, setUsers] = useState([]);
   const [orders, setOrders] = useState([]);
+  const [queries, setQueries] = useState([]);
   const [deleteModal, setDeleteModal] = useState({ show: false, orderId: null });  //delete modal 
   const [editModal, setEditModal] = useState({ show: false, user: null });  //edit modal
 
@@ -384,6 +396,14 @@ export default function Dashboard() {
 
       const ordersSnapshot = await getDocs(collection(db, "orders"));
       setOrders(ordersSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))); // orders set karo
+
+      const queriesSnapshot = await getDocs(collection(db, "queries"));
+      const queriesData = queriesSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })).sort((a, b) => {
+        const timeA = a.createdAt?.seconds ? a.createdAt.seconds * 1000 : (a.createdAt?.getTime ? a.createdAt.getTime() : 0);
+        const timeB = b.createdAt?.seconds ? b.createdAt.seconds * 1000 : (b.createdAt?.getTime ? b.createdAt.getTime() : 0);
+        return timeB - timeA;
+      });
+      setQueries(queriesData);
     };
 
     fetchData();
@@ -728,6 +748,7 @@ export default function Dashboard() {
             <li onClick={() => setActiveView("dashboard")}>Dashboard</li>
             <li onClick={() => setActiveView("users")} >Customer</li>
             <li onClick={() => setActiveView("orders")}>Orders</li>
+            <li onClick={() => setActiveView("queries")}>Queries</li>
             <li onClick={() => setActiveView("sales")}>Sales</li>
             <li onClick={() => setActiveView("images")}>Images</li>
           </ul>
@@ -1673,6 +1694,13 @@ export default function Dashboard() {
                 <option value="slider">Slider Image</option>
                 <option value="suiting">Suiting Image</option>
                 <option value="shirting">Shirting Image</option>
+                <option value="ct_image1">Custom Tailoring - Section 1</option>
+                <option value="ct_image2">Custom Tailoring - Section 2</option>
+                <option value="ct_image3">Custom Tailoring - Section 3</option>
+                <option value="ct_step1">CT Timeline Step 1</option>
+                <option value="ct_step2">CT Timeline Step 2</option>
+                <option value="ct_step3">CT Timeline Step 3</option>
+                <option value="ct_step4">CT Timeline Step 4</option>
               </select>
 
               {/* 🔥 Title + Brand only for Suiting / Shirting */}
@@ -1719,6 +1747,51 @@ export default function Dashboard() {
                 {uploading ? "Uploading..." : "Upload Image"}
               </button>
 
+            </div>
+          </div>
+        )}
+
+        {activeView === "queries" && (
+          <div className="table-card">
+            <div className="table-header-flex">
+              <div>
+                <h2>Customer Queries</h2>
+              </div>
+            </div>
+
+            <div className="sales-table-wrapper">
+              <table className="sales-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {queries.map((q) => {
+                    const rawDate = q.createdAt?.toDate ? q.createdAt.toDate() : q.createdAt;
+                    const formattedDate = rawDate
+                      ? new Date(rawDate).toLocaleDateString("en-IN", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                      })
+                      : "No Date";
+                    return (
+                      <tr key={q.id}>
+                        <td><span className="date-cell">{formattedDate}</span></td>
+                        <td><b>{q.name}</b></td>
+                        <td>{q.phone}</td>
+                        <td>{q.email}</td>
+                        <td style={{ maxWidth: "300px", wordWrap: "break-word" }}>{q.message}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
           </div>
         )}

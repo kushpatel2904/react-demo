@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import RaymondSection from "./raymondsection";
+import Raymondknowmore from "./raymondknowmore";
 import Raymondbook  from "./raymondbook"
 import "./raymond.css";
 
@@ -13,6 +14,7 @@ export default function Raymond() {
   const [shirtingImg, setShirtingImg] = useState(""); // shirting image
   const [loading, setLoading] = useState(true); 
   const [showTopBtn, setShowTopBtn] = useState(false);
+  const [showCustom, setShowCustom] = useState(false); // custom tailoring view state
 
   /* 🚀 2. SCROLL EFFECTS (Intersection Observer & Back to Top) */
   useEffect(() => {
@@ -126,6 +128,12 @@ export default function Raymond() {
     );
   }
 
+
+  if (showCustom) {
+    return <Raymondknowmore onBack={() => setShowCustom(false)} />;
+  }
+
+
   return (
     <>
  {/* BACK TO TOP BUTTON */}
@@ -181,6 +189,13 @@ export default function Raymond() {
             <h6 className="h6">
               Raymond offers a wide range of products including fabrics, ready-to-wear apparel, tailored clothing, and lifestyle solutions. With its strong retail presence and commitment to excellence, Raymond continues to set benchmarks in the fashion and textile industry while shaping a future rooted in quality and style.
             </h6>
+            <button
+            className="know-more-btn"
+            onClick={() => setShowCustom(true)}
+          >
+            KNOW MORE
+            <span className="arrow">→</span>
+          </button>
           </div>
         </div>
       </div>
@@ -204,6 +219,13 @@ export default function Raymond() {
               Pure silk, linen, silk jacquards, poly-viscose, jute silk, cotton, and more exquisite fabrics are available.
               Ensembles feature self-colour, digital and machine embroidery along with hand embroideries such as zardozi, aari, and beadwork, as well as digital and block prints.
             </h6>
+            <button
+            className="know-more-btn"
+            onClick={() => setShowCustom(true)}
+          >
+            KNOW MORE
+            <span className="arrow">→</span>
+          </button>
           </div>
         </div>
         <div className="Raymondclub-image scroll-hide">

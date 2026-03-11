@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import ArvindSection from "./arvindsection";
+import Arvindknowmore from "./arvindknowmore";
 import Arvindbook from "./arvindbook"
 import "./arvind.css";
 
@@ -13,6 +14,7 @@ export default function Arvind() {
   const [shirtingImg, setShirtingImg] = useState(""); // shirting image
   const [loading, setLoading] = useState(true); 
   const [showTopBtn, setShowTopBtn] = useState(false);
+  const [showCustom, setShowCustom] = useState(false); // custom tailoring view state
 
   /* 🚀 2. SCROLL EFFECTS (Intersection Observer & Back to Top) */
   useEffect(() => {
@@ -131,6 +133,10 @@ export default function Arvind() {
     );
   }
 
+  if (showCustom) {
+    return <Arvindknowmore onBack={() => setShowCustom(false)} />;
+  }
+
   return (
     <>
  {/* BACK TO TOP BUTTON */}
@@ -179,6 +185,13 @@ export default function Arvind() {
             <h6 className="h6">
               Arvind Limited, a pioneer in the Indian textile industry, has been shaping premium fabrics since 1931. Known for its expertise in weaving and finishing, Arvind produces a wide range of high-quality fabrics suitable for formal wear, including 100% cotton, cotton-polyester blends, and premium high-count yarns.
             </h6>
+            <button
+            className="know-more-btn"
+            onClick={() => setShowCustom(true)}
+          >
+            KNOW MORE
+            <span className="arrow">→</span>
+          </button>
           </div>
         </div>
       </div>
@@ -197,6 +210,13 @@ export default function Arvind() {
             <h6 className="h6">
               Arvind’s formal shirt fabrics are widely used to make shirts intended for daily office use, business meetings, and corporate uniforms. These fabrics offer a neat, professional appearance while remaining comfortable for long work hours
             </h6>
+            <button
+            className="know-more-btn"
+            onClick={() => setShowCustom(true)}
+          >
+            KNOW MORE
+            <span className="arrow">→</span>
+          </button>
           </div>
         </div>
         <div className="arvindsuiting-image scroll-hide">

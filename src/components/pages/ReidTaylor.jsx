@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import ReidTaylorsection from "./ReidTaylorsection";
+import Reidtaylorknowmore from "./reidtaylorknowmore";
 import Reidtaylorbook from "./reidtaylorbook"
 import "./ReidTaylor.css";
 
@@ -14,6 +15,8 @@ export default function ReidTaylor() {
   const [reidTaylorImg, setReidTaylorImg] = useState(""); // ReidTaylor section
   const [loading, setLoading] = useState(true); 
   const [showTopBtn, setShowTopBtn] = useState(false);
+  const [showCustom, setShowCustom] = useState(false); // custom tailoring view state
+
 
 /* 🚀 2. SCROLL EFFECTS (Intersection Observer & Back to Top) */
 useEffect(() => {
@@ -115,6 +118,11 @@ useEffect(() => {
     );
   }
 
+
+  if (showCustom) {
+    return <Reidtaylorknowmore onBack={() => setShowCustom(false)} />;
+  }
+
   return (
     <>
  {/* BACK TO TOP BUTTON */}
@@ -177,6 +185,13 @@ useEffect(() => {
             stretch, breathability, and wrinkle resistance, making them suitable for every occasion, from formal events
             to everyday casual wear.
           </h6>
+          <button
+            className="know-more-btn"
+            onClick={() => setShowCustom(true)}
+          >
+            KNOW MORE
+            <span className="arrow">→</span>
+          </button>
         </div>
       </div>
 
@@ -202,6 +217,13 @@ useEffect(() => {
             Cotton-Linen Blends: Combines lightness and texture for a sophisticated feel.
             Specialty Fabrics: Includes wool-silk blends, merino wool, and other luxury options designed for style and comfort.
           </h6>
+          <button
+            className="know-more-btn"
+            onClick={() => setShowCustom(true)}
+          >
+            KNOW MORE
+            <span className="arrow">→</span>
+          </button>
         </div>
         <div className="suiting-image">
           {suitingImg && <img src={suitingImg} alt="Suiting" loading="lazy" />}

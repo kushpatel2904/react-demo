@@ -12,7 +12,8 @@
           "scrollbar-width",
           "scrollbar-width: none",
           "accent-color",
-          "inset"
+          "inset",
+          "aspect-ratio"
         ]
       }
     ]

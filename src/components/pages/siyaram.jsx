@@ -3,6 +3,7 @@ import { db } from "../../firebase";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import OccasionSection from "./OccasionSection";
 import Flipbook from "./flipbook";
+import CustomTailoring from "./CustomTailoring";
 import "./siyaram.css";
 
 export default function Siyaram() {
@@ -14,6 +15,7 @@ export default function Siyaram() {
   const [shirtingImg, setShirtingImg] = useState(""); // shirting image
   const [loading, setLoading] = useState(true);
   const [showTopBtn, setShowTopBtn] = useState(false);
+  const [showCustom, setShowCustom] = useState(false); // custom tailoring view state
 
 
 
@@ -138,6 +140,10 @@ export default function Siyaram() {
     );
   }
 
+  if (showCustom) {
+    return <CustomTailoring onBack={() => setShowCustom(false)} />;
+  }
+
   return (
     <>
       {/* BACK TO TOP BUTTON */}
@@ -200,6 +206,13 @@ export default function Siyaram() {
             using materials like superfine polyester, cotton, linen, and blends for features such as stretch,
             breathability, and wrinkle resistance, suitable for various occasions from formal to casual wear
           </h6>
+          <button
+            className="know-more-btn"
+            onClick={() => setShowCustom(true)}
+          >
+            KNOW MORE
+            <span className="arrow">→</span>
+          </button>
         </div>
       </div>
 
@@ -207,6 +220,7 @@ export default function Siyaram() {
       <div className="suiting-section scroll-hide">
         <div className="shirting-text">
           <h1>Shirting</h1>
+          
           <h5 className="container2-h5">
             Materials & Blends: Siyaram's provides a diverse selection of fabrics, including:
             Natural: 100% cotton (including Giza cotton and superfine cotton), 100% linen, and cotton-linen blends.
@@ -225,13 +239,22 @@ export default function Siyaram() {
             Cotton-Linen Blends: Combines the breathability of cotton with the texture of linen for a stylish feel.
             Specialty Fabrics: Includes Evita Bamboo, Vitello, and even Anti-Bacterial options for hygiene
           </h6>
+          <button 
+  className="know-more-btn"
+  onClick={() => setShowCustom(true)}
+>
+  KNOW MORE
+  <span className="arrow">→</span>
+</button>
         </div>
+        
 
         <div className="suiting-image">
           {shirtingImg && (
             <img src={shirtingImg} alt="Siyaram Shirting" loading="lazy" />
           )}
         </div>
+        
       </div>
 
       {/* ================= OCCASION SECTION ================= */}

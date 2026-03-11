@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import LinenSection from "./linensection";
+import Linenknowmore from "./linenknowmore";
 import Linenbook from "./linenbook";
 import "./linen.css";
 
@@ -14,6 +15,7 @@ export default function Linen() {
   const [shirtingImg, setShirtingImg] = useState(""); // shirting section image
   const [loading, setLoading] = useState(true); 
   const [showTopBtn, setShowTopBtn] = useState(false);
+  const [showCustom, setShowCustom] = useState(false); // custom tailoring view state
 
   /* 🚀 2. SCROLL EFFECTS (Intersection Observer & Back to Top) */
   useEffect(() => {
@@ -133,6 +135,10 @@ export default function Linen() {
     );
   }
 
+  if (showCustom) {
+    return <Linenknowmore onBack={() => setShowCustom(false)} />;
+  }
+
   return (
     <>
     {/* BACK TO TOP BUTTON */}
@@ -186,6 +192,13 @@ export default function Linen() {
               Well-fitted linen trousers in neutral shades offer a sophisticated alternative to wool, especially in warmer climates.
               A well-constructed linen suit (or blazer paired with chinos/trousers) in a dark or neutral color is appropriate for summer weddings, business meetings, and formal gatherings, balancing elegance with comfort.
             </h6>
+            <button
+            className="know-more-btn"
+            onClick={() => setShowCustom(true)}
+          >
+            KNOW MORE
+            <span className="arrow">→</span>
+          </button>
           </div>
         </div>
       </div>
@@ -212,6 +225,13 @@ export default function Linen() {
               Cream/Ecru: A soft, natural alternative to stark white, exuding elegance.
               Navy Blue/Blue: A classic and refined choice that offers sophistication without the weight of traditional wool.
             </h6>
+            <button
+            className="know-more-btn"
+            onClick={() => setShowCustom(true)}
+          >
+            KNOW MORE
+            <span className="arrow">→</span>
+          </button>
           </div>
         </div>
         <div className="linenclub-image scroll-hide">

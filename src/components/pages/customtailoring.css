@@ -1,0 +1,226 @@
+/* customtailoring.css */
+
+.custom-tailoring-wrapper {
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #fff;
+}
+
+.custom-tailoring-header {
+  padding: 20px 40px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #a31d36; /* Using Arvind Store red as accent, adjust to match Siyaram if needed */
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s;
+}
+
+.back-btn:hover {
+  color: #7a1427;
+}
+
+/* Intro Section */
+.ct-intro-section {
+  text-align: center;
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ct-main-title {
+  font-size: 32px;
+  font-weight: 400;
+  color: #7a1427;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.vertical-line {
+  width: 1px;
+  height: 40px;
+  background-color: #333;
+  margin: 0 auto 20px;
+}
+
+.ct-intro-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* Process Section */
+.ct-process-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 10%;
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.process-step {
+  flex: 1;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.step-number {
+  font-size: 48px;
+  font-weight: bold;
+  color: #e5e5e5;
+  margin-bottom: 15px;
+}
+
+.step-image {
+  max-width: 150px;
+  max-height: 150px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto 15px;
+  display: block;
+}
+
+.step-image-placeholder {
+  max-width: 150px;
+  height: 150px;
+  width: 100%;
+  background-color: #f1f1f1;
+  margin: 0 auto 15px;
+  border-radius: 8px;
+}
+
+.process-step h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.4;
+}
+
+.process-divider {
+  height: 1px;
+  width: 50px;
+  background-color: #ccc;
+  margin-top: 70px;
+  flex-shrink: 0;
+}
+.ct-showcase{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  min-height:600px;
+  width:100%;
+  }
+  
+  .ct-showcase.reverse{
+  flex-direction:row-reverse;
+  }
+  
+  .showcase-image{
+  flex:1;
+  overflow:hidden;
+  }
+  
+  .showcase-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  }
+  
+  .showcase-content{
+  flex:1;
+  padding:80px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  }
+  
+  .showcase-content h2{
+  font-size:28px;
+  letter-spacing:2px;
+  margin-bottom:20px;
+  }
+  
+  .showcase-content p{
+  font-size:16px;
+  line-height:1.8;
+  max-width:500px;
+  }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .ct-process-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .process-divider {
+    width: 2px;
+    height: 30px;
+    margin: 10px 0;
+  }
+  
+  .ct-showcase,
+  .ct-showcase.split-right {
+    flex-direction: column;
+  }
+  
+  .showcase-image {
+    min-height: 300px;
+  }
+  
+  .showcase-content {
+    padding: 60px 30px;
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 900px) {
+
+  .ct-process-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .process-divider {
+    width: 2px;
+    height: 30px;
+    margin: 10px 0;
+  }
+
+  /* FIX showcase layout */
+
+  .ct-showcase{
+    flex-direction: column;
+  }
+
+  .ct-showcase.reverse{
+    flex-direction: column;
+  }
+
+  .showcase-image{
+    height: 320px;
+    width:100%;
+  }
+
+  .showcase-content{
+    padding:40px 25px;
+    text-align:center;
+    align-items:center;
+  }
+
+}

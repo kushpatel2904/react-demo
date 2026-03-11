@@ -3,6 +3,7 @@ import { db } from "../../firebase";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import JHamstedsection from "./jhamstedsection";
 import JHamstedbook from "./jhamstedbook";
+import Jhamstedknowmore from "./jhamstedknowmore";
 import "./jhamsted.css";
 
 export default function JHamsted() {
@@ -14,6 +15,7 @@ export default function JHamsted() {
   const [shirtingImg, setShirtingImg] = useState(""); // shirting section image
   const [loading, setLoading] = useState(true); 
   const [showTopBtn, setShowTopBtn] = useState(false);
+  const [showCustom, setShowCustom] = useState(false); // custom tailoring view state
 
   /* 🚀 2. SCROLL EFFECTS (Intersection Observer & Back to Top) */
   useEffect(() => {
@@ -135,6 +137,11 @@ export default function JHamsted() {
     );
   }
 
+
+  if (showCustom) {
+    return <Jhamstedknowmore onBack={() => setShowCustom(false)} />;
+  }
+
   return (
     <>
  {/* BACK TO TOP BUTTON */}
@@ -211,6 +218,13 @@ export default function JHamsted() {
               an exquisite range of men's shirt and trousers that define stylish
               outfits for men with a distinct flair of sophistication.
             </h6>
+            <button
+            className="know-more-btn"
+            onClick={() => setShowCustom(true)}
+          >
+            KNOW MORE
+            <span className="arrow">→</span>
+          </button>
           </div>
         </div>
       </div>
@@ -249,6 +263,13 @@ export default function JHamsted() {
               for festive wear, weddings, parties, and stylish contemporary
               outfits
             </h6>
+            <button
+            className="know-more-btn"
+            onClick={() => setShowCustom(true)}
+          >
+            KNOW MORE
+            <span className="arrow">→</span>
+          </button>
           </div>
         </div>
         <div className="suit-image scroll-hide">
